@@ -18,7 +18,21 @@ public class Codingtest {
         //Output
         System.out.println("day nice a have");
 
+        Reverse();
 
+
+    }
+
+    public static void Reverse() {
+
+        String start = "Have a nice day";
+        String end = "";
+        String regex =("\\s");
+        String words[] = start.split(regex) ;
+        for (int i = words.length-1; i>=0; i--) {
+            end += words[i]+" ";
+        }
+        System.out.println(end);
     }
 
 }
