@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="300sp"
+    android:orientation="vertical"
+    android:padding="20sp"
+    tools:context="com.example.singh.androidviews.MainActivity">
+
+
+    <TextView
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is textview"/>
+
+
+    <TextView
+        android:layout_marginTop="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the second textview"/>
+
+
+    <EditText
+
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnUpdateName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update name"
+        android:onClick="doMagic"
+        />
+
+    <TextView
+        android:textSize="20sp"
+        android:id="@+id/tvUpdatedName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorGreen"/>
+
+
+
+    <Button
+        android:onClick="goToSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to second"/>
+
+
+</LinearLayout>
+

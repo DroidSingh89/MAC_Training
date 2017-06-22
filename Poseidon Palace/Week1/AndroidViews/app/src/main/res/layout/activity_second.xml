@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30sp"
+    tools:context="com.example.singh.androidviews.SecondActivity">
+
+
+    <TextView
+        android:id="@+id/tvFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First one"/>
+
+    <TextView
+        android:id="@+id/tvSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Second one"
+        android:layout_toRightOf="@id/tvFirst"/>
+
+    <TextView
+        android:id="@+id/tvThird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Third one"
+        android:layout_below="@id/tvSecond"
+        android:layout_alignLeft="@id/tvSecond"/>
+
+
+
+    <ImageView
+        android:layout_below="@id/tvThird"
+        android:layout_alignLeft="@id/tvThird"
+        android:id="@+id/imageView"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:src="@drawable/monkey"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change image"
+        android:layout_below="@id/imageView"
+        android:layout_alignLeft="@id/imageView"
+        android:onClick="changeImage"/>
+
+
+
+</RelativeLayout>
