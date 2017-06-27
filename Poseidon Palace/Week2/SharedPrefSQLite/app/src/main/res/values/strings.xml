@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SharedPrefSQLite</string>
+    <string name="KEY_NAME">name</string>
+</resources>
