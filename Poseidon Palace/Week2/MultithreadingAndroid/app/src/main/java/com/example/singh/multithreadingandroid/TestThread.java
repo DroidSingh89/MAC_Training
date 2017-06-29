@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by singh on 6/28/17.
  */
@@ -51,6 +53,8 @@ int i;
 
                 }
             }, 2000);
+
+            EventBus.getDefault().post(new StuffEvent("Stuff"));
 
             System.out.println( "Counter: " + i + " " + Thread.currentThread());
 

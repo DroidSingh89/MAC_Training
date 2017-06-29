@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by singh on 6/28/17.
  */
@@ -49,10 +51,11 @@ public class TestRunnable implements Runnable {
                 }
             }, 2000);
 
-
+            EventBus.getDefault().post(new HelloEvent("Hello: " + String.valueOf(i)));
             System.out.println( "Counter: " + i + "Thread: " + Thread.currentThread());
 
         }
+
 
 
     }
