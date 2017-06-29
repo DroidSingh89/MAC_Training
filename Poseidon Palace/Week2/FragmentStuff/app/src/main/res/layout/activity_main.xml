@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.singh.fragmentstuff.MainActivity">
+
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addRedFrag"
+        android:text="Add red" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addBlueFrag"
+        android:text="Add Blue" />
+
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addYellowFrag"
+        android:text="Add Yellow" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remove red"
+        android:onClick="removeRed"
+        />
+
+    <FrameLayout
+        android:id="@+id/flFirstFrag"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"></FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/flSecondFrag"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"></FrameLayout>
+
+    <fragment
+        android:id="@+id/redFragment"
+        android:name="com.example.singh.fragmentstuff.RedFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></fragment>
+
+</LinearLayout>
