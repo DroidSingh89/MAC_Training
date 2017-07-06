@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.singh.broadcastreceiver.MainActivity">
+
+
+    <Button
+        android:text="Using the manifest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendBroadcastUsingManifest" />
+
+    <EditText
+        android:id="@+id/etBroadcastReceiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:text="Using the activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendBroadcastUsingActivity" />
+
+    <TextView
+
+        android:textColor="@color/colorAccent"
+        android:text="Sending data to other application"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etSendData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="sendBroadcastToOtherApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send data"/>
+
+
+</LinearLayout>
