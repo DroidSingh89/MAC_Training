@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.singh.makingrestcalls.MainActivity">
+
+    <TextView
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:text="Making rest calls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    //using native api
+    <Button
+        android:text="Using Http"
+        android:onClick="makingRestCalls"
+        android:id="@+id/btnHttp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    //third party lib okHttp3
+    <Button
+        android:text="Using okHttp"
+        android:onClick="makingRestCalls"
+        android:id="@+id/btnOkHttp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvOkhttpResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    //third party lib Retrofit
+    <Button
+        android:text="Using Retrofit"
+        android:onClick="makingRestCalls"
+        android:id="@+id/btnRetrofit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

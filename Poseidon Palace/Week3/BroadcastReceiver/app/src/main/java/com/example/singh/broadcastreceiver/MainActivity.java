@@ -1,5 +1,6 @@
 package com.example.singh.broadcastreceiver;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -65,14 +66,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        unregisterReceiver(myNewReceiver);
+        //unregisterReceiver(myNewReceiver);
     }
 
     public void sendBroadcastToOtherApp(View view) {
 
         Intent intent = new Intent("sendingToOtherApp");
+
         intent.putExtra("newString", editText2.getText().toString());
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+        sendBroadcast(intent,Manifest.permission.ANSWER_PHONE_CALLS);
 
     }
 
@@ -82,9 +84,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-
             String data = intent.getStringExtra("myString");
-            Toast.makeText(context, data, Toast.LENGTH_SHORT).show();
 
         }
     }

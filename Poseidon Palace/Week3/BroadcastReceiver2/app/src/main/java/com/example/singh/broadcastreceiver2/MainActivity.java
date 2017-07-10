@@ -1,5 +1,6 @@
 package com.example.singh.broadcastreceiver2;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,16 +17,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
 
-    MyReceiver myReceiver = new MyReceiver();
+    MyReceiver myReceiver;
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        myReceiver = new MyReceiver();
+
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("");
-        registerReceiver(myReceiver, new IntentFilter("sendingToOtherApp"));
+        intentFilter.addAction("sendingToOtherApp");
+        registerReceiver(myReceiver, intentFilter);
 
 
     }
@@ -33,19 +39,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        unregisterReceiver(myReceiver);
 
     }
 
-
-    public class  MyReceiver extends BroadcastReceiver{
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "onReceive: " + intent.getStringExtra("newString"));
-
-
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(myReceiver);
     }
 
 }
