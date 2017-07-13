@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.singh.makingrestcalls.model.weather.Weatherdata;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -116,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
                         .build();
 
 
-
-
                 GithubService githubService = retrofit.create(GithubService.class);
                 retrofit2.Call<List<GithubRepo>> callToGetRepos = githubService.callProfle("manroopAndroid");
 
@@ -139,9 +139,32 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                break;
 
+            //making rest calls using Retrofit helper class
+            case R.id.btnRetrofit2:
+
+
+
+                retrofit2.Call<Weatherdata> weatherdataCall = RetrofitHelper.callWeatherData();
+                weatherdataCall.enqueue(new retrofit2.Callback<Weatherdata>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<Weatherdata> call, retrofit2.Response<Weatherdata> response) {
+                        Log.d(TAG, "onResponse: " + response.body().getCity().getName());
+                        Toast.makeText(MainActivity.this, response.body().getCity().getName(), Toast.LENGTH_SHORT).show();
+
+
+                    }
+
+                    @Override
+                    public void onFailure(retrofit2.Call<Weatherdata> call, Throwable t) {
+
+                        Log.d(TAG, "onFailure: " + t.toString());
+                    }
+                });
 
                 break;
+
         }
 
 

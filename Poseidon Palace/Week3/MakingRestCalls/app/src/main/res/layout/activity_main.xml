@@ -44,4 +44,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:onClick="makingRestCalls"
+        android:text="Using Retrofit(2)"
+        android:id="@+id/btnRetrofit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
