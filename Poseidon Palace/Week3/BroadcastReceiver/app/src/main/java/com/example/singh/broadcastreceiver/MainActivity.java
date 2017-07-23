@@ -72,9 +72,8 @@ public class MainActivity extends AppCompatActivity {
     public void sendBroadcastToOtherApp(View view) {
 
         Intent intent = new Intent("sendingToOtherApp");
-
         intent.putExtra("newString", editText2.getText().toString());
-        sendBroadcast(intent,Manifest.permission.ANSWER_PHONE_CALLS);
+        sendBroadcast(intent);
 
     }
 
@@ -85,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
 
             String data = intent.getStringExtra("myString");
+            Toast.makeText(context, data, Toast.LENGTH_SHORT).show();
 
         }
     }

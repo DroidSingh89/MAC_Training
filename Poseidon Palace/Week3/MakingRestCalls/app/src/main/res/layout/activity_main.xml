@@ -51,4 +51,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    //third party using RxJava
+    <Button
+        android:onClick="makingRestCalls"
+        android:text="Using RxJava"
+        android:id="@+id/btnRxJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    //using google places api
+    <Button
+        android:onClick="makingRestCalls"
+        android:text="Using RxJava"
+        android:id="@+id/btnGooglePlaces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
 </LinearLayout>

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.singh.makingrestcalls.model.googleplaces.ClosePlacesPojo;
 import com.example.singh.makingrestcalls.model.weather.Weatherdata;
 import com.google.gson.Gson;
 
@@ -27,6 +28,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -145,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnRetrofit2:
 
 
-
                 retrofit2.Call<Weatherdata> weatherdataCall = RetrofitHelper.callWeatherData();
                 weatherdataCall.enqueue(new retrofit2.Callback<Weatherdata>() {
                     @Override
@@ -165,8 +169,67 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
+            case R.id.btnRxJava:
+
+                Observable<Weatherdata> weatherdataObservable = RetrofitHelper.getWeatherDataObs();
+                weatherdataObservable.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Subscriber<Weatherdata>() {
+                            @Override
+                            public void onCompleted() {
+                                Log.d(TAG, "onCompleted: ");
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                                Log.d(TAG, "onError: "+ e.toString());
+                            }
+
+                            @Override
+                            public void onNext(Weatherdata weatherdata) {
+                                Log.d(TAG, "onNext: " + weatherdata.getCity().getName());
+                            }
+                        });
+
+
+                break;
+
+            case R.id.btnGooglePlaces:
+
+
+                retrofit2.Call<ClosePlacesPojo> call = RetrofitHelper.callGooglePlaces();
+                call.enqueue(new retrofit2.Callback<ClosePlacesPojo>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<ClosePlacesPojo> call, retrofit2.Response<ClosePlacesPojo> response) {
+                        Log.d(TAG, "onResponse: " + response.body().getResults().get(0).getName());
+                    }
+
+                    @Override
+                    public void onFailure(retrofit2.Call<ClosePlacesPojo> call, Throwable t) {
+
+                    }
+                });
+
+
+                break;
+
+
         }
 
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
