@@ -6,6 +6,8 @@ import com.example.singh.makingrestcalls.model.googleplaces.ClosePlacesPojo;
 import com.example.singh.makingrestcalls.model.weather.Weather;
 import com.example.singh.makingrestcalls.model.weather.Weatherdata;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -33,8 +35,19 @@ public class RetrofitHelper {
 
     public static Retrofit create() {
 
+        //create an interceptor
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+
+        //create a client
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(logging)
+                .build();
+
+        //create retrofit instance
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Base_URL)
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
