@@ -12,7 +12,10 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -76,6 +79,8 @@ public class RetrofitHelper {
 
     }
 
+
+
     public static Observable<Weatherdata> getWeatherDataObs(){
         Retrofit retrofit = create();
         WeatherService service = retrofit.create(WeatherService.class);
@@ -97,16 +102,12 @@ public class RetrofitHelper {
     public interface WeatherService {
 
         @GET("data/2.5/forecast")
-        Call<Weatherdata> getWeatherData(@Query("zip") String zip, @Query("appid") String appid);
+        Call<Weatherdata> getWeatherData( @Query("zip") String zip, @Query("appid") String appid);
 
 
         @GET("data/2.5/forecast")
         Observable<Weatherdata> getWeatherDataObsv(@Query("zip") String zip, @Query("appid") String appid);
 
-//
-//        @GET("api/place/nearbysearch/json?sensor=true&key=AIzaSyCZbgGY4IMPsS20u_dVlhZUy-MTq0TWlss")
-//        Call<ClosePlacesPojo> getNearbyLocations(@Query("location")String coord,@Query("radius")int radius);
-//
         @GET("api/place/nearbysearch/json")
         Call<ClosePlacesPojo> getGooglePlaces(
                 @Query("sensor") String sensor,
