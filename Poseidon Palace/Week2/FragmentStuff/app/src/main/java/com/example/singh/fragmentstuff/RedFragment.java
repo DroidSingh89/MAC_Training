@@ -12,12 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RedFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- */
 public class RedFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;

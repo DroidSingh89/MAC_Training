@@ -1,5 +1,7 @@
 package com.example.singh.mvp_dagger.model;
 
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 /**

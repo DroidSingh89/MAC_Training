@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LayoutAndViews</string>
+    <string name="hello">Hello</string>
+    <string name="KEY_VALUE1">value1</string>
+</resources>

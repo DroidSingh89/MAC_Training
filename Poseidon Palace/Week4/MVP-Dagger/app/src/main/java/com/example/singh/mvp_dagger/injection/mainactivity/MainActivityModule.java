@@ -2,6 +2,8 @@ package com.example.singh.mvp_dagger.injection.mainactivity;
 
 import com.example.singh.mvp_dagger.view.activites.mainactivity.MainActivityPresenter;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -15,9 +17,12 @@ public class MainActivityModule {
 
 
     @Provides
+    @Singleton
     public MainActivityPresenter provideMainActivityPresenter(){
         return new MainActivityPresenter();
     }
+
+
 
 
 }
