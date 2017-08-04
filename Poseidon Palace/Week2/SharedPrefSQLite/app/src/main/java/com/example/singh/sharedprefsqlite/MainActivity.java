@@ -2,6 +2,7 @@ package com.example.singh.sharedprefsqlite;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.provider.ContactsContract;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         editText = (EditText) findViewById(R.id.edittext);
         textView = (TextView) findViewById(R.id.textview);
+
+
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
 
 
     }

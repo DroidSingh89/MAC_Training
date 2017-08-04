@@ -1,6 +1,7 @@
 package com.example.singh.savedataconfigchange;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
     @Override
@@ -56,4 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setText(savedInstanceState.getString("textview"));
     }
+
+
 }
