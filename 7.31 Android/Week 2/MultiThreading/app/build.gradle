@@ -4,8 +4,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.example.singh.multithreadingandroid"
-        minSdkVersion 19
+        applicationId "com.example.user.multithreadingandroid"
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -16,8 +16,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
-
     }
 }
 
@@ -31,6 +29,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'org.greenrobot:eventbus:3.0.0'
-
-
 }

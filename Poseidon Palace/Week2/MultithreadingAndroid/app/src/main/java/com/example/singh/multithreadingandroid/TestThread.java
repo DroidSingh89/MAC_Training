@@ -16,7 +16,8 @@ public class TestThread extends Thread {
     TextView tvResultPost, tvResultDelayed;
     Handler handler = new Handler(Looper.getMainLooper());
 
-int i;
+    int i;
+
     public TestThread(TextView tvResultPost, TextView tvResultDelayed) {
         this.tvResultPost = tvResultPost;
         this.tvResultDelayed = tvResultDelayed;
@@ -40,7 +41,7 @@ int i;
                 @Override
                 public void run() {
 
-               tvResultPost.setText(String.valueOf(i));
+                    tvResultPost.setText(String.valueOf(i));
 
                 }
             });
@@ -56,7 +57,7 @@ int i;
 
             EventBus.getDefault().post(new StuffEvent("Stuff"));
 
-            System.out.println( "Counter: " + i + " " + Thread.currentThread());
+            System.out.println("Counter: " + i + " " + Thread.currentThread());
 
         }
 
