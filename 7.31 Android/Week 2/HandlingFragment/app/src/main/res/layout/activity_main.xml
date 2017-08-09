@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.example.user.handlingfragments.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This fragment is added statically"/>
+
+    <fragment
+        android:id="@+id/redFragment"
+        android:name="com.example.user.handlingfragments.RedFragment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add them dynamically"/>
+
+    <Button
+        android:id="@+id/btnAddRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addFragments"
+        android:text="Add red"/>
+
+
+    <Button
+        android:id="@+id/btnAddYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addFragments"
+        android:text="Add Yellow"/>
+
+    <Button
+        android:id="@+id/btnAddBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addFragments"
+        android:text="Add Blue"/>
+
+    <TextView
+        android:text="Removing them dynamically"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnRemoveRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="removeFragments"
+        android:text="Add red"/>
+
+
+    <Button
+        android:id="@+id/btnRemoveYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="removeFragments"
+        android:text="Add Yellow"/>
+
+    <Button
+        android:id="@+id/btnRemoveBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="removeFragments"
+        android:text="Add Blue"/>
+
+    <Button
+        android:id="@+id/btnRemoveAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="removeFragments"
+        android:text="Remove All"/>
+
+    <FrameLayout
+        android:id="@+id/flFrag1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+
+
+    <TextView
+        android:id="@+id/tvFromBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

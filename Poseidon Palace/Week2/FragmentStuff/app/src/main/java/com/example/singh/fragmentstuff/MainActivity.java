@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements RedFragment.OnFra
 
     public void removeRed(View view) {
 
-
         android.support.v4.app.Fragment fragment = getSupportFragmentManager().findFragmentByTag(RED_FRAGMENT_TAG);
         getSupportFragmentManager().beginTransaction().remove(fragment).commit();
 
