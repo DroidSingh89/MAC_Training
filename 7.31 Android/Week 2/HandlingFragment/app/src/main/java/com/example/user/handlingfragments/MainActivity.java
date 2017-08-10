@@ -1,5 +1,6 @@
 package com.example.user.handlingfragments;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements BlueFragment.OnFr
         setContentView(R.layout.activity_main);
 
         tvFromBlue = (TextView) findViewById(R.id.tvFromBlue);
-
 
     }
 
