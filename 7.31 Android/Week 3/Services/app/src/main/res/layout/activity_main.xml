@@ -8,6 +8,17 @@
     android:orientation="vertical"
     tools:context="com.example.user.services.MainActivity">
 
+
+
+
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Start schedule service"/>
+
+
     <Button
         android:id="@+id/btnStartNormalService"
         android:layout_width="match_parent"

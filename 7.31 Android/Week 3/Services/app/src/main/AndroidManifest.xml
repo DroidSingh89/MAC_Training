@@ -33,6 +33,17 @@
             android:enabled="true"
             android:exported="true">
         </service>
+        <service
+            android:name=".services.MyScheduleService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".services.MyJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+        </service>
     </application>
 
 </manifest>

@@ -1,10 +1,14 @@
 package com.example.user.services;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +16,7 @@ import android.view.View;
 
 import com.example.user.services.services.MyBoundService;
 import com.example.user.services.services.MyIntentService;
+import com.example.user.services.services.MyJobService;
 import com.example.user.services.services.MyNormalService;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("TAG", "onCreate: act");
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void startServices(View view) {
 
         Intent normalIntent = new Intent(this, MyNormalService.class);
@@ -37,6 +43,23 @@ public class MainActivity extends AppCompatActivity {
 
 
         switch (view.getId()){
+
+
+            case R.id.btnScheduleService:
+
+                ComponentName serviceComponent = new ComponentName(this, MyJobService.class);
+                JobInfo.Builder jobInfo = new JobInfo.Builder(0, serviceComponent);
+
+                jobInfo.setMinimumLatency(1000);
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+
+                    //JobScheduler jobScheduler = getSystemService(JobScheduler.class);
+                    jobScheduler.schedule(jobInfo.build());
+                }
+
+
+                break;
 
             case R.id.btnStartNormalService:
 
