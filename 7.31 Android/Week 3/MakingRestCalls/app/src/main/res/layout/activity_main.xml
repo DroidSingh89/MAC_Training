@@ -8,6 +8,10 @@
     android:orientation="vertical"
     tools:context="com.example.user.makingrestcalls.MainActivity">
 
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnHttp"
@@ -37,5 +41,18 @@
         android:layout_height="wrap_content"
         android:onClick="makingRestCalls"
         android:text="Using Retrofit"/>
+
+
+    <Button
+        android:id="@+id/btnRetrofitRxJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Using Retrofit RxJava"/>
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
