@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
 
         DaggerMainActivityComponent.create().inject(this);
-        
+
         presenter.attachView(this);
         presenter.setContext(this);
 
