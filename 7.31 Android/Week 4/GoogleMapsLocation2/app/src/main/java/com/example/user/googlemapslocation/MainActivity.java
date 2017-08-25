@@ -1,9 +1,13 @@
 package com.example.user.googlemapslocation;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.location.Criteria;
 
 import com.example.user.googlemapslocation.model.AddressResponse;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -28,7 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LocationListener{
 
     private static final String TAG = "MainActivityTag";
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -101,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,100, this);
 
     }
 
@@ -196,8 +202,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        Log.d(TAG, "onLocationChanged: " + location.toString());
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+        Log.d(TAG, "onStatusChanged: " + s);
+
+        switch (i){
+            case LocationProvider.AVAILABLE:
+                Log.d(TAG, "onStatusChanged: Available");
+                break;
+            case LocationProvider.OUT_OF_SERVICE:
+                Log.d(TAG, "onStatusChanged: Out of service");
+                break;
+            case LocationProvider.TEMPORARILY_UNAVAILABLE:
+                Log.d(TAG, "onStatusChanged: Temp unavailable");
+                break;
+        }
+
 
     }
 
+    @Override
+    public void onProviderEnabled(String s) {
 
+        Log.d(TAG, "onProviderEnabled: " +s);
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+        Log.d(TAG, "onProviderDisabled: " + s);
+    }
 }
