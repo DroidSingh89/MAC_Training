@@ -240,4 +240,26 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
 
         Log.d(TAG, "onProviderDisabled: " + s);
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        Log.d(TAG, "onWindowFocusChanged: "+ hasFocus);
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+
+    }
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.testing.MainActivity">
+
+    <EditText
+        android:hint="Number one"
+        android:id="@+id/etNumber1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Number two"
+        android:id="@+id/etNumber2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnAddition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doCalculations1"
+        android:text="Add"/>
+
+
+    <Button
+        android:id="@+id/btnSubtraction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doCalculations"
+        android:text="Subtract"/>
+
+    <Button
+        android:id="@+id/btnMultiplication"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doCalculations"
+        android:text="Multiply"/>
+
+    <Button
+        android:id="@+id/btnDivision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doCalculations"
+        android:text="Divide"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result"/>
+
+
+    <TextView
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/btnToSecond"
+        android:onClick="goToSecond"
+        android:text="Go to second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
