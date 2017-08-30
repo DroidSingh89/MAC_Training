@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">AndroidViewsAndLayouts</string>
+    <string name="name">John Doe</string>
+    <string name="hello">Hello</string>
+
+
+</resources>
