@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ActivitiesAndIntents</string>
+    <string name="secondKey">KEY_DATA_SECOND</string>
+</resources>

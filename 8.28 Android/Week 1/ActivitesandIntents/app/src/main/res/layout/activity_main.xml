@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.user.activitiesandintents.MainActivity">
+
+        <EditText
+            android:id="@+id/etData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter data for second"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goToSecond"
+            android:text="Go to second activity"/>
+
+        <EditText
+            android:id="@+id/etUpdateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="updateTextView"
+            android:text="Update TextView"/>
+
+        <TextView
+            android:id="@+id/tvDisplayValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:id="@+id/etPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etPersonGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnSendSerializable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendPersonObject"
+            android:text="Send To Second (Serializable)"/>
+
+        <Button
+            android:id="@+id/btnSendParcelable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendPersonObject"
+            android:text="Send To Second (Parcelable)"/>
+
+    </LinearLayout>
+</ScrollView>
