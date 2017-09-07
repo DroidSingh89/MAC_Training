@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(this).load(Image_Url).into(imageView);
     }
 
-    public void makingRestCalls(View view) throws IOException {
+    public void makingRestCalls(View view) throws IOException, InterruptedException {
 
         final OkHttpClient client = new OkHttpClient();
 
@@ -169,5 +169,10 @@ public class MainActivity extends AppCompatActivity {
                         });
                 break;
         }
+        waiting();
+    }
+    public void waiting() throws InterruptedException {
+
+        Thread.sleep(2000);
     }
 }

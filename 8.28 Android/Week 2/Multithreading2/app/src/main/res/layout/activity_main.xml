@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.multithreading.MainActivity">
+
+
+    <TextView
+        android:text="Multithreading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Using Threads"
+        android:onClick="executeThreads"
+        android:id="@+id/btnThread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Using Runnable"
+        android:onClick="executeThreads"
+        android:id="@+id/btnRunnable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Using AsyncTask"
+        android:onClick="executeThreads"
+        android:id="@+id/btnAsyncTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/tvAsyncTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Using Thread and Handler(Message)"
+        android:onClick="executeThreads"
+        android:id="@+id/btnThreadHandlerMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/tvThreadHandlerMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Using Multiple Runnables"
+        android:onClick="executeThreads"
+        android:id="@+id/btnMultipleRunnables"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/tvCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

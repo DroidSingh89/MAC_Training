@@ -19,8 +19,12 @@ public class SecondActivity extends AppCompatActivity {
 
         tvData = (TextView) findViewById(R.id.tvData);
 
+
+        //receive the intent from the component that started this activity
         Intent intent = getIntent();
+        //get the data from the that intent
         String data = intent.getStringExtra(Constants.KEY_FOR_DATA);
+        //update the views with the data received
         tvData.setText(data);
 
         //receive the personSerializable object from the first activity
@@ -29,6 +33,7 @@ public class SecondActivity extends AppCompatActivity {
         //receive the personParcelable object from the first activity
         PersonParcelable personParcelable = intent.getParcelableExtra("personObjectParcelable");
 
+        //since either of them are going to be clicked, add a null check to avoid crash
         if (personSerializable != null) {
 
             Log.d(TAG, "onCreate: Serializable" + personSerializable.toString());

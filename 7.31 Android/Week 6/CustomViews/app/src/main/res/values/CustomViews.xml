@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Parent">
+    <attr name="borderColor" format="integer"/>
+    </declare-styleable>
+
+
+
+    <declare-styleable name="CustomCircle" parent="Parent">
+        <attr name="radius" format="integer"/>
+        <attr name="borderColor"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomRect">
+        <attr name="length" format="integer"/>
+        <attr name="width" format="integer"/>
+        <attr name="borderColor"/>
+    </declare-styleable>
+
+
+</resources>
