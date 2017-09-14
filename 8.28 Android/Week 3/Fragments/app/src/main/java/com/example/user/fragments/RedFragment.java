@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -18,11 +19,22 @@ public class RedFragment extends Fragment {
 
 
     private static final String TAG = "RedFragmentTag";
+    private TextView tvDataFromActivity;
+    String dataFromActivity;
 
     public RedFragment() {
         // Required empty public constructor
     }
 
+
+    public static RedFragment newInstance(String dataFromActivity){
+        RedFragment redFragment = new RedFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("data", dataFromActivity);
+        redFragment.setArguments(bundle);
+        return redFragment;
+
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -34,6 +46,10 @@ public class RedFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: ");
+        if(getArguments()!=null){
+            dataFromActivity = getArguments().getString("data");
+        }
+
         super.onCreate(savedInstanceState);
     }
 
@@ -46,10 +62,25 @@ public class RedFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_red, container, false);
     }
 
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        tvDataFromActivity = view.findViewById(R.id.tvDataFromActivity);
+
+        Log.d(TAG, "onViewCreated: ");
+        super.onViewCreated(view, savedInstanceState);
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onActivityCreated: ");
+
+        onDataReceived(dataFromActivity);
         super.onActivityCreated(savedInstanceState);
+    }
+
+    public void onDataReceived(String dataFromActivity){
+        tvDataFromActivity.setText(dataFromActivity);
     }
 
     @Override

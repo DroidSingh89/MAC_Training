@@ -1,15 +1,14 @@
-package com.example.user.fr
+package com.example.user.fragments;
 
-import android.support.v4.app.Fragment;`
+import android.support.v4.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -22,7 +21,10 @@ public class BlueFragment extends Fragment {
 
     private TextView tvPersonName;
 
+
     private OnFragmentInteractionListener mListener;
+    private Button btnSendDataToActivity;
+    private EditText etDataToSend;
 
     public BlueFragment() {
         // Required empty public constructor
@@ -60,13 +62,27 @@ public class BlueFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         tvPersonName = view.findViewById(R.id.tvPersonName);
+        btnSendDataToActivity = view.findViewById(R.id.btnSendToActivity);
+        etDataToSend = view.findViewById(R.id.etDataToSend);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         tvPersonName.setText(mParam1 + " " + mParam2);
+        btnSendDataToActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String data = etDataToSend.getText().toString();
+                mListener.sendDataToActivity(data);
+
+
+
+            }
+        });
 
 
     }
@@ -89,7 +105,8 @@ public class BlueFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String data);
+        void sendDataToActivity(String data);
+
     }
 }

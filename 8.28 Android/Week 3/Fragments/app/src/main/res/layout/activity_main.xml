@@ -1,46 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.user.fragments.MainActivity">
 
-    <fragment
-        android:id="@+id/fragRed"
-        android:name="com.example.user.fragments.RedFragment"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:text="Add red fragment"
-        android:id="@+id/btnAddRedFrag"
-        android:onClick="addFragments"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.user.fragments.MainActivity">
 
-    <Button
-        android:onClick="addFragments"
-        android:text="Add blue fragment"
-        android:id="@+id/btnAddBlueFrag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <fragment
+            android:id="@+id/fragRed"
+            android:name="com.example.user.fragments.RedFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <FrameLayout
-        android:id="@+id/flFragHolderRed"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="10dp">
+        <!--Adding the fragments-->
+        <TextView
+            android:text="Add the fragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnAddRedFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addFragments"
+            android:text="Add red fragment"/>
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btnAddBlueFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addFragments"
+            android:text="Add blue fragment"/>
 
-    <FrameLayout
-        android:id="@+id/flFragHolderBlue"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="10dp">
+        <!--Removing the fragments-->
+        <TextView
+            android:text="Remove the fragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnRemoveRedFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="removeFragments"
+            android:text="Remove red fragment"/>
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btnRemoveBlueFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="removeFragments"
+            android:text="Remove blue fragment"/>
 
-</LinearLayout>
+
+        <!--Send data to the red fragment-->
+        <EditText
+            android:id="@+id/etDataForRedFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendDataToRedFrag"
+            android:text="Send data to Red frag"/>
+
+
+        <FrameLayout
+            android:id="@+id/flFragHolderRed"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flFragHolderBlue"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp">
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text to be updated from blue fragment"/>
+
+        <TextView
+            android:id="@+id/tvTextFromBlueFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
