@@ -28,6 +28,8 @@ public class CustomListAdapter extends ArrayAdapter<Person> {
 
     }
 
+
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

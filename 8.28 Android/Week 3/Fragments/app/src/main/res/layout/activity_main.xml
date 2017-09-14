@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.fragments.MainActivity">
+
+    <fragment
+        android:id="@+id/fragRed"
+        android:name="com.example.user.fragments.RedFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="Add red fragment"
+        android:id="@+id/btnAddRedFrag"
+        android:onClick="addFragments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="addFragments"
+        android:text="Add blue fragment"
+        android:id="@+id/btnAddBlueFrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/flFragHolderRed"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/flFragHolderBlue"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp">
+
+    </FrameLayout>
+
+</LinearLayout>
