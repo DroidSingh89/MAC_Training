@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.makingrestcalls.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Making rest calls using different methods"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"/>
+
+    <!--Using Http native-->
+    <Button
+        android:id="@+id/btnNativeHttp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Using Native Http"/>
+
+    <!--Using OkHttp-->
+    <Button
+        android:id="@+id/btnOkHttpSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Using OkHttp (Sync)"/>
+
+    <Button
+        android:id="@+id/btnOkHttpAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Using OkHttp (Async)"/>
+
+    <!--Using Retrofit-->
+    <Button
+        android:id="@+id/btnRetrofitSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Using Retrofit (Sync)"/>
+
+    <Button
+        android:id="@+id/btnRetrofitAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Using Retrofit (Async)"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
