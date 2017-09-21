@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
             //make synchronous calls using okhttp
             case R.id.btnOkHttp:
+
 
 
                 new Thread(new Runnable() {

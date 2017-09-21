@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         tvResult = (TextView) findViewById(R.id.tvResult);
         imageView = (ImageView) findViewById(R.id.ivTest);
+
 
         Glide.with(this).load(image_url).into(imageView);
 
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).start();
                 Toast.makeText(this, "Check your logs", Toast.LENGTH_SHORT).show();
+
 
 
                 break;

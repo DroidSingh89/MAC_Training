@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.services.MainActivity">
+
+    <Button
+        android:id="@+id/btnNormalServiceStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Start Normal Service"/>
+
+    <Button
+        android:id="@+id/btnNormalServiceStop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Stop Normal Service"/>
+
+    <Button
+        android:id="@+id/btnIntentserviceStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Start Intent Service"/>
+
+
+    <Button
+        android:id="@+id/btnBoundToService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Bound to Service"/>
+
+    <Button
+        android:id="@+id/btnBoundInitData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Init data for Bounce"/>
+
+    <Button
+        android:id="@+id/btnBoundGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Get data from Bounce"/>
+
+
+
+    <Button
+        android:id="@+id/btnUnboundToService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Unbound to Service"/>
+
+</LinearLayout>

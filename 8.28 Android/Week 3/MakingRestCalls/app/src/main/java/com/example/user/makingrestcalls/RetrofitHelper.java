@@ -24,7 +24,7 @@ public class RetrofitHelper {
 
     //create and initialize the retrofit instance
     public static Retrofit create() {
-        
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
