@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.mvp_dagger.view.mainactivity.MainActivity">
+
+
+    <EditText
+        android:id="@+id/etInputString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnUpdateView"
+        android:text="Update view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/tvOutputString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Initial value"
+        />
+
+</LinearLayout>
