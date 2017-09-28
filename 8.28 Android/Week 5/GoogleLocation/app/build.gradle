@@ -12,6 +12,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+
+//        buildTypes.each {
+//            it.buildConfigField('String', 'GOOGLE_GEOCODING_KEY', 'AIzaSyCFWH68PiBVwUatCkHGNAHg4Z-MKssPPa4')
+//        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -20,6 +26,8 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
+
+
 
 }
 
