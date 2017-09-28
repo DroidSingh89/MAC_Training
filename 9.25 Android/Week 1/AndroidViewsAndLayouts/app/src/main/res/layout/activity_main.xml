@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.example.user.androidviewsandlayouts.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Linear layout"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First name"/>
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Last name"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="savePerson"
+            android:id="@+id/btnSaveToList"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Save to List"/>
+
+        <Button
+            android:onClick="printPersons"
+            android:id="@+id/btnPrintNames"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSaveToList"
+            android:layout_toRightOf="@id/btnSaveToList"
+            android:text="Print names"/>
+
+        <Button
+            android:onClick="goToSecond"
+            android:id="@+id/btnGoToSecond"
+            android:layout_toRightOf="@id/btnPrintNames"
+            android:text="Go to Second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivKitty"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/kitten"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivKitty2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/kitten"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Meow"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"/>
+    </FrameLayout>
+
+</LinearLayout>
