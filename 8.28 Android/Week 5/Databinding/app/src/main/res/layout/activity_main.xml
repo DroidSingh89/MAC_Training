@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="person"
+            type="com.example.user.databinding.model.Person"/>
+
+        <variable
+            name="viewmodel"
+            type="com.example.user.databinding.ViewModel"/>
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.user.databinding.MainActivity">
+        <!--Textviews-->
+        <!--PersonName-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{person.name}"/>
+        <!--PersonAge-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{person.age}"/>
+        <!--PersonEmail-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{person.email}"/>
+
+        <Button
+
+            android:text="onClick"
+            android:onClick="@{viewmodel::onClick}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Edittexts-->
+        <!--PersonName-->
+        <EditText
+            android:addTextChangedListener = "@{person.watcherName}"
+            android:hint="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <!--PersonAge-->
+        <EditText
+            android:addTextChangedListener = "@{person.watcherAge}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <!--PersonEmail-->
+        <EditText
+            android:addTextChangedListener = "@{person.watcherEmail}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <!--Send the person object from the edittext-->
+        <Button
+            android:text="onClick(Person)"
+            android:onClick="@{view -> viewmodel.onClickPerson(view, person)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</layout>

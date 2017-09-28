@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.parcelableandserializable.MainActivity">
+
+
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+
+    <EditText
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age"/>
+
+
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gender"/>
+
+
+    <EditText
+        android:id="@+id/etPersonAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"/>
+
+
+    <Button
+        android:id="@+id/btnPersonParcelable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendPerson"
+        android:text="Send Parcelable"/>
+
+
+    <Button
+        android:id="@+id/btnPersonSerializable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendPerson"
+        android:text="Send Serializable"/>
+
+    <Button
+        android:id="@+id/btnSharePerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendPerson"
+        android:text="Share person outside"/>
+
+
+</LinearLayout>
