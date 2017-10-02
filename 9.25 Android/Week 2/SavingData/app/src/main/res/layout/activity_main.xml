@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.savingdata.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Saving data in the shared pref file"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/etSaveDataToSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSaveDataToSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="usingSharedPref"
+        android:text="Save value to Shared pref"/>
+
+    <TextView
+        android:id="@+id/tvDataFromSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnGetDataFromSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="usingSharedPref"
+        android:text="Get value to Shared pref"/>
+
+    <Button
+        android:id="@+id/btnClearAllSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="usingSharedPref"
+        android:text="Clear all shared pref"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Saving data in SQLite database"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Person Name"/>
+
+
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Person Gender"/>
+
+
+    <EditText
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Person Age"/>
+
+    <Button
+        android:id="@+id/btnSavePersonToDB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="usingSQLite"
+        android:text="Save person"/>
+
+    <Button
+        android:id="@+id/btnGetPersonsFromDB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="usingSQLite"
+        android:text="Get persons"/>
+
+</LinearLayout>
