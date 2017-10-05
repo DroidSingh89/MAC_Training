@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.mixpanel.MainActivity">
+
+
+    <Button
+        android:onClick="logActivity"
+        android:id="@+id/btnRun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run"/>
+
+    <Button
+        android:onClick="logActivity"
+        android:id="@+id/btnJump"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jump"/>
+
+
+    <Button
+        android:onClick="logActivity"
+        android:id="@+id/btnFly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fly"/>
+
+    <Button
+        android:onClick="logActivity"
+        android:id="@+id/btnSleep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sleep"/>
+
+
+
+
+</LinearLayout>
