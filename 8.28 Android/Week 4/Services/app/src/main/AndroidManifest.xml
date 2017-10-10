@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.user.services">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +14,8 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.media.action.STILL_IMAGE_CAPTURE"/>
+
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
@@ -30,6 +34,19 @@
             android:name=".MyBoundService"
             android:enabled="true"
             android:exported="true">
+        </service>
+
+        <service
+            android:name=".MyScheduledService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+
+        <service
+            android:name=".MyJobService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
     </application>
 

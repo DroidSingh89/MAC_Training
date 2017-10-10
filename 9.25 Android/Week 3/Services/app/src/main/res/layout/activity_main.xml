@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.services.MainActivity">
+
+    <Button
+        android:id="@+id/btnStartedService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Start normal service"/>
+
+
+    <Button
+        android:id="@+id/btnStopService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Stop normal service"/>
+
+    <Button
+        android:id="@+id/btnStartIntentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Start Intent service"/>
+
+    <Button
+        android:id="@+id/btnStartIntentServiceTask2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Start Intent service Task 2"/>
+
+    <Button
+        android:id="@+id/btnBoundService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Bound to car service"/>
+
+    <Button
+        android:id="@+id/btnBoundGetCars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Get car list from bound"/>
+
+    <Button
+        android:id="@+id/btnAddCar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Add car to bound service"/>
+    <Button
+        android:id="@+id/btnUnBindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Unbound to service"/>
+    <Button
+        android:id="@+id/btnScheduleJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Schedule a job"/>
+
+</LinearLayout>

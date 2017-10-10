@@ -60,4 +60,12 @@
         android:onClick="startServices"
         android:text="Unbound to Service"/>
 
+
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startServices"
+        android:text="Schedule a Service"/>
+
 </LinearLayout>

@@ -9,6 +9,7 @@
     tools:context="com.example.user.customviews.MainActivity">
 
     <com.example.user.customviews.CustomCircle
+        android:id="@+id/CustomCircle"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

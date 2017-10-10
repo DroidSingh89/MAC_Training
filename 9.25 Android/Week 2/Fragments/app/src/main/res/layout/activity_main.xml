@@ -9,7 +9,6 @@
     android:padding="10dp"
     tools:context="com.example.user.fragments.MainActivity">
 
-
     <fragment
         android:id="@+id/fragRed"
         android:name="com.example.user.fragments.RedFragment"
@@ -30,6 +29,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+
+    <Button
+        android:onClick="addingFragments"
+        android:text="Add Yellow fragment"
+        android:id="@+id/btnAddYellowFrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:onClick="addingFragments"
+        android:text="Add Text To Yellow fragment"
+        android:id="@+id/btnAddTextToYellowFrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <FrameLayout
         android:id="@+id/frameBlue"
         android:layout_width="match_parent"
@@ -40,6 +55,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/frag_height"/>
 
+
+    <FrameLayout
+        android:id="@+id/frameYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
