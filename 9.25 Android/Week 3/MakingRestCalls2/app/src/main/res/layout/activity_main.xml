@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.makingrestcalls.MainActivity">
+
+    <Button
+        android:id="@+id/btnNative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Native (HttpUrlConnection)"/>
+
+    <Button
+        android:id="@+id/btnOkhttpSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Okhttp Sync"/>
+
+    <Button
+        android:id="@+id/btnOkhttpAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Okhttp Async"/>
+
+    <Button
+        android:id="@+id/btnRetrofitSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Retrofit Sync"/>
+
+    <Button
+        android:id="@+id/btnRetrofitAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Retrofit Async"/>
+
+
+</LinearLayout>
