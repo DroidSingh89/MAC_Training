@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity
     @Inject
     private MainActivityPresenter presenter;
 
-    @
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
