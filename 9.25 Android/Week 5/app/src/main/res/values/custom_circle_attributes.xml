@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="custom_circle" parent="custom_parent">
+        <attr name="radius" format="integer"/>
+        <attr name="color"/>
+
+    </declare-styleable>
+
+
+
+</resources>
