@@ -10,10 +10,12 @@ import android.view.View;
 public class ViewModel {
 
 
+
     private static final String TAG = "ViewModelTag";
 
     public void printPerson(View view, Person person) {
         Log.d(TAG, "printPerson: " + person.toString());
+
 
     }
 

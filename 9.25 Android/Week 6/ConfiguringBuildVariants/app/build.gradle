@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.user.configuringbuildvariants"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+
+        debug {
+            applicationIdSuffix = ".debug"
+
+            debuggable true
+        }
+
+//        jniDebug {
+//
+//            applicationIdSuffix = ".debug"
+//            jniDebuggable = true
+//
+//        }
+
+    }
+
+    flavorDimensions "full", "demo"
+
+    productFlavors {
+
+        full {
+            applicationIdSuffix = ".full"
+            versionNameSuffix = "-full"
+            dimension "full"
+        }
+
+        demo {
+
+            minSdkVersion 21
+            applicationIdSuffix = ".demo"
+            versionNameSuffix = "-demo"
+            dimension "demo"
+        }
+
+    }
+
+    sourceSets {
+        debug { java.srcDirs = ['src/debug/java', 'src/full/java/'] }
+        release { java.srcDirs = ['src/release/java', 'src/release/java/'] }
+        demo { java.srcDirs = ['src/demo/java', 'src/demo/java/'] }
+    }
+
+    splits{
+        density{
+            enable true
+            exclude "ldpi" ,"xxhdpi" , "xxxhdpi"
+            compatibleScreens "small", "large", "normal" , "xlarge"
+        }
+
+
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
