@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.androidviewsandlayouts.MainActivity">
+
+    <!--create a button to go to the webview activity-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToSecondActivity"
+        android:text="Check developer website"/>
+
+
+    <!--Create a form to save a person name-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First name"/>
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last name"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="savePersonName"
+            android:text="Save person"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="displayPersons"
+            android:text="Display persons"/>
+
+        <TextView
+            android:id="@+id/tvPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <!--Display the latest person object-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnDisplayNewestPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="displayNewestPerson"
+            android:text="Display newest"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_purple"
+            android:id="@+id/tvNewPersonFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnDisplayNewestPerson"
+            android:layout_toRightOf="@id/btnDisplayNewestPerson"
+            android:text="firstname"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_purple"
+            android:id="@+id/tvNewPersonLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNewPersonFirstName"
+            android:layout_toRightOf="@id/tvNewPersonFirstName"
+            android:text="lastname"/>
+
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="@dimen/headingTextSize"
+            android:textColor="@android:color/holo_purple"
+            android:id="@+id/tvPersonFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+</LinearLayout>
