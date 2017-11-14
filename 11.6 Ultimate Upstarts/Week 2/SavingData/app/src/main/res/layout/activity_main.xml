@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.savingdata.MainActivity">
+
+
+    <!--using shared preferences-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using shared preferences"/>
+
+    <EditText
+        android:id="@+id/etDataToBeSaved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="handlingDataSharedPref"
+        android:id="@+id/btnSaveDataSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Data"/>
+
+    <Button
+        android:onClick="handlingDataSharedPref"
+        android:id="@+id/btnGetDataSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Data"/>
+
+    <Button
+        android:onClick="handlingDataSharedPref"
+        android:id="@+id/btnClearDataSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear Data"/>
+
+    <TextView
+        android:id="@+id/tvDisplayDataSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="data placeholder"/>
+
+    <!--using sqlite database-->
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using SQLite database"/>
+
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="handlingDataSQL"
+        android:id="@+id/btnSaveDataSQL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Data"/>
+
+    <Button
+        android:onClick="handlingDataSQL"
+        android:id="@+id/btnGetDataSQL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Data"/>
+
+    <TextView
+        android:id="@+id/tvDisplayDataSQL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
