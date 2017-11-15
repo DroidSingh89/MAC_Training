@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.fragments.MainActivity">
+
+
+    <!--static fragment-->
+    <fragment
+        android:id="@+id/fragRed"
+        android:name="com.example.user.fragments.fragments.RedFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frag_height"/>
+
+
+    <!--Buttons for adding fragments-->
+    <Button
+        android:id="@+id/btnAddBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_margin"
+        android:onClick="addingFragments"
+        android:text="Add blue"/>
+
+    <Button
+        android:id="@+id/btnAddYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_margin"
+        android:onClick="addingFragments"
+        android:text="Add Yellow"/>
+
+
+    <!--Buttons for removing fragments-->
+    <Button
+        android:id="@+id/btnRemoveBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_margin"
+        android:onClick="removeFragments"
+        android:text="Remove blue"/>
+
+
+    <!--Placeholder for adding fragments-->
+    <FrameLayout
+        android:id="@+id/fl_blue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frag_height"
+        android:layout_margin="@dimen/std_margin">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_yellow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frag_height"
+        android:layout_margin="@dimen/std_margin">
+
+    </FrameLayout>
+
+
+</LinearLayout>

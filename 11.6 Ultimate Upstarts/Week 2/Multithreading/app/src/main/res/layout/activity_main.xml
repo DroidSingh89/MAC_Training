@@ -27,6 +27,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="handleMultithreading"
-        android:text="Thread"/>¡
-¡
+        android:text="Thread"/>
+
+    <Button
+        android:id="@+id/btnAsyncTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleMultithreading"
+        android:text="AsyncTask"/>
+
+    <Button
+        android:id="@+id/btnEventBus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleMultithreading"
+        android:text="Get data using EventBus"/>
 </LinearLayout>
