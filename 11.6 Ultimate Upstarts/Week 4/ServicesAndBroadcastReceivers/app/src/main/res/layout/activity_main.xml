@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.servicesandbroadcastreceivers.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Services"/>
+
+    <Button
+        android:id="@+id/btnStartStartedService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Started service"/>
+
+    <Button
+        android:id="@+id/btnStopStartedService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop Started service"/>
+
+    <Button
+        android:id="@+id/btnIntentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Intent service"/>
+
+    <Button
+        android:id="@+id/btnBindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bind service"/>
+
+    <TextView
+        android:id="@+id/tvBindServiceData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Default bind service data"/>
+
+    <Button
+        android:id="@+id/btnUnbindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unbind service"/>
+    <Button
+        android:text="Get Bound data"
+        android:id="@+id/btnGetBoundData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Broadcast receivers"/>
+
+    <EditText
+        android:id="@+id/etSendData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Send broadcast"
+        android:id="@+id/btnSendBroadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvBRData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Default BR data"/>
+
+</LinearLayout>
