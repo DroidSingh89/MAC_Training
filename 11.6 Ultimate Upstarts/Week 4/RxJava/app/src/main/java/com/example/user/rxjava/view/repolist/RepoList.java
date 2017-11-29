@@ -7,9 +7,13 @@ import android.widget.Toast;
 
 import com.example.user.rxjava.R;
 import com.example.user.rxjava.data.remote.RemoteDataSource;
+
+import com.example.user.rxjava.di.repolist.DaggerRepoListComponent;
 import com.example.user.rxjava.model.Repo;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -20,6 +24,7 @@ public class RepoList extends AppCompatActivity implements RepoListContract.View
 
     private static final String TAG = "MainActivityTag";
 
+    @Inject
     RepoListPresenter presenter;
 
     @Override
@@ -27,7 +32,10 @@ public class RepoList extends AppCompatActivity implements RepoListContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new RepoListPresenter();
+        //DaggerRepoListComponent
+        DaggerRepoListComponent.create().inject(this);
+
+
         presenter.attachView(this);
         presenter.getRepos("manroopsingh");
 

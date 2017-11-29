@@ -3,6 +3,9 @@ package com.example.user.rxjava.view.repolist;
 import android.util.Log;
 
 import com.example.user.rxjava.data.remote.RemoteDataSource;
+import com.example.user.rxjava.di.Addition;
+import com.example.user.rxjava.di.AdditionABC;
+import com.example.user.rxjava.di.Calculation;
 import com.example.user.rxjava.model.Repo;
 
 import java.util.ArrayList;
@@ -37,7 +40,6 @@ public class RepoListPresenter implements RepoListContract.Presenter{
 
     @Override
     public void getRepos(String username) {
-
 
 
         RemoteDataSource.getUserRepos(username)
