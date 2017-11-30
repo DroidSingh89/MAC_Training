@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Root layout for the view as linear layout-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.androidviewsandlayouts.MainActivity">
+
+    <!--Linear layout - vertical -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/please_enter_your_details_here"/>
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"/>
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name"/>
+
+        <Button
+            android:id="@+id/btnSetName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/set_name"/>
+
+        <TextView
+            android:id="@+id/tvFullName_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/default_name"/>
+
+
+    </LinearLayout>
+
+    <!--Relative layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFirstName_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fname"/>
+
+        <TextView
+            android:id="@+id/tvLastName_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvFirstName_rl"
+            android:layout_toEndOf="@id/tvFirstName_rl"
+            android:text="lname"/>
+
+        <TextView
+            android:id="@+id/tvFullName_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLastName_rl"
+            android:layout_toEndOf="@id/tvLastName_rl"
+            android:text="fullname"/>
+
+
+    </RelativeLayout>
+
+
+    <!--Frame layout-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tvFullname_fl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Fullname"/>
+
+
+    </FrameLayout>
+
+</LinearLayout>

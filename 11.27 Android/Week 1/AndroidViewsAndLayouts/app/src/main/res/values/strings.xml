@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidViewsAndLayouts</string>
+    <string name="helloString">Hello world</string>
+    <string name="please_enter_your_details_here">Please enter your details here</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="set_name">Set name</string>
+    <string name="default_name">default name</string>
+</resources>

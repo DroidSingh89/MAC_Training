@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">holaAndroidViewsAndLayouts</string>
+    <string name="helloString">Ni hao world</string>
+</resources>
