@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <!--create the data tag for initiating the variables to be used-->
+    <data>
+        <!--declare variable classes to be used in this xml-->
+        <variable
+            name="person"
+            type="com.example.user.databinding.model.Person"/>
+
+        <variable
+            name="viewmodel"
+            type="com.example.user.databinding.MainViewModelImpl"/>
+
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.user.databinding.MainActivity">
+
+        <!--Person Name-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{person.nameObs}"/>
+
+        <!--Person Age-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{person.ageObsf}"/>
+
+        <!--Simple on click event-->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewmodel::onClick}"
+            android:text="Simple on click"/>
+
+        <!--Update the person object-->
+        <!--Person name editText-->
+        <EditText
+            android:addTextChangedListener = "@{person.watcherName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"/>
+
+        <!--Person age editText-->
+        <EditText
+
+            android:addTextChangedListener = "@{person.watcherAge}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Age"/>
+
+        <!--Send person object on button click-->
+        <Button
+            android:onClick="@{view -> viewmodel.updatePerson(view, person)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send person"/>
+
+    </LinearLayout>
+
+</layout>

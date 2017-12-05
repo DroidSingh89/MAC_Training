@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationProviderClient;
 
 
+
     LocationCallback locationCallback;
     private LocationRequest locationRequest;
     private Location currentLocation;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
 
 
         fusedLocationProviderClient =

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.datapersistance.MainActivity">
+
+    <EditText
+        android:id="@+id/etPrefName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        />
+
+    <Button
+        android:id="@+id/btnSavePref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlePrefs"
+        android:text="Save preferences"/>
+
+    <Button
+        android:id="@+id/btnGetPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlePrefs"
+        android:text="Get preferences"/>
+
+    <TextView
+        android:id="@+id/tvPrefName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:hint="Name"
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Age"
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Gender"
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="usingSQLite"
+        android:id="@+id/btnSavePerson"
+            android:text="Save person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:onClick="usingSQLite"
+        android:id="@+id/btnGetPersons"
+        android:text="Get persons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
