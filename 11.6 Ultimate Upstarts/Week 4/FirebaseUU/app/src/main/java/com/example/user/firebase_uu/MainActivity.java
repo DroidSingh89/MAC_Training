@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+
+        //register to topics
+        FirebaseMessaging.getInstance().subscribeToTopic("world");
+
+        //gettoken
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "onCreate: " + token);
+
 
         String customData = getIntent().getStringExtra("Custom1");
 
