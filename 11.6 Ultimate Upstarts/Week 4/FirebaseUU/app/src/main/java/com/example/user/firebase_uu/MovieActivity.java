@@ -1,5 +1,11 @@
 package com.example.user.firebase_uu;
 
+import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,11 +35,18 @@ public class MovieActivity extends AppCompatActivity {
     private EditText etMovieYear;
     private EditText etMovieDirector;
     private FirebaseUser user;
+    private MyReceiver myReceiver;
+    private String customdata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
+
+        customdata = getIntent().getStringExtra("customdata");
+        if(customdata!=null)
+        Toast.makeText(this, customdata, Toast.LENGTH_SHORT).show();
+
 
         // Write a message to the database
         database = FirebaseDatabase.getInstance();
@@ -91,7 +104,7 @@ public class MovieActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // This method is called once with the initial value and again
                         // whenever data at this location is updated.
-                        for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             Movie movie = snapshot.getValue(Movie.class);
                             Log.d(TAG, "onDataChange: " + movie.getName());
                         }
@@ -106,5 +119,49 @@ public class MovieActivity extends AppCompatActivity {
                 });
 
 
+    }
+
+    public class MyReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(final Context context, Intent intent) {
+            if (!isFinishing()) {
+
+                AlertDialog alertDialog = new AlertDialog.Builder(context)
+                        .setMessage("Schedule job")
+                        .setMessage("Received an update to do " + intent.getStringExtra("customdata") + ". Do you want to schedule the job?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(context, "Scheduled", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(context, "Not Scheduled", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .create();
+                alertDialog.show();
+            }
+
+
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        myReceiver = new MyReceiver();
+        IntentFilter intentFilter = new IntentFilter("openDialog");
+
+        registerReceiver(myReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(myReceiver);
     }
 }

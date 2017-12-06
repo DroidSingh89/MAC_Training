@@ -36,7 +36,19 @@ public class MainActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
 
-            
+        String customData = getIntent().getStringExtra("Custom1");
+
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(this, MovieActivity.class);
+
+            if(customData!=null){
+            intent.putExtra("customdata", customData);
+            }
+            startActivity(intent);
+        }
 
     }
 
@@ -113,12 +125,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
-        if(statusCode==1 && user!=null){
+        if (statusCode == 1 && user != null) {
             Intent intent = new Intent(this, MovieActivity.class);
             startActivity(intent);
         }
-
-
 
 
     }
