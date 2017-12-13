@@ -6,7 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.user.rxjava.R;
-import com.example.user.rxjava.data.remote.RemoteDataSource;
+
 
 import com.example.user.rxjava.di.repolist.DaggerRepoListComponent;
 import com.example.user.rxjava.model.Repo;
@@ -14,11 +14,6 @@ import com.example.user.rxjava.model.Repo;
 import java.util.List;
 
 import javax.inject.Inject;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class RepoList extends AppCompatActivity implements RepoListContract.View{
 

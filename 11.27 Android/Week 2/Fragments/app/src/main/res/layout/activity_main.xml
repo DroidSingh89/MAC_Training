@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context="com.example.user.fragments.MainActivity">
+
+
+        <TextView
+            android:id="@+id/tvDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="default text"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp"/>
+
+        <EditText
+            android:id="@+id/etMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data for frag"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendDataToBlue"
+            android:text="Send data to blue"/>
+
+        <fragment
+            android:id="@+id/fragRed"
+            android:name="com.example.user.fragments.fragments.RedFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/frag_height"/>
+
+        <!--adding fragments-->
+        <!--add blue fragment-->
+        <Button
+            android:id="@+id/btnAddBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addingFragments"
+            android:text="Add blue"/>
+        <!--add yellow fragment-->
+        <Button
+            android:id="@+id/btnAddYellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addingFragments"
+            android:text="Add Yellow"/>
+
+        <!--removing fragments-->
+        <!--remove blue fragment-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="removeBlueFrag"
+            android:text="Remove Blue"/>
+        <!--remove yellow fragment-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="removeYellowFrag"
+            android:text="Remove Yellow"/>
+
+        <!--other remove methods-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="removeImmediate"
+            android:text="Remove Immediate"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="removeAllFrags"
+            android:text="Remove All"/>
+
+        <!--place holders for fragments-->
+        <FrameLayout
+            android:id="@+id/flBlue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/frag_height"/>
+
+        <FrameLayout
+            android:id="@+id/flYellow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/frag_height"/>
+
+
+    </LinearLayout>
+</ScrollView>

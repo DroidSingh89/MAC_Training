@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.customviews.MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onColorChange"
+        android:text="Change Color"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRadiusChange"
+        android:text="Change Radius"/>
+
+    <com.example.user.customviews.customviews.CustomCircle
+        android:layout_gravity="center"
+        android:id="@+id/myCustomCircle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@android:color/holo_green_light"
+        app:fillColor="@color/colorAccent"
+        app:radius="100"/>
+
+</LinearLayout>
