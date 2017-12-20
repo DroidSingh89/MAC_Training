@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity
                 .enqueue(new retrofit2.Callback<GithubResponse>() {
                     @Override
                     public void onResponse(retrofit2.Call<GithubResponse> call, retrofit2.Response<GithubResponse> response) {
-                        
+
                         githubHandler
                                 .sendMessage(MessageUtil.getMessage(response.body().getName()));
                     }
