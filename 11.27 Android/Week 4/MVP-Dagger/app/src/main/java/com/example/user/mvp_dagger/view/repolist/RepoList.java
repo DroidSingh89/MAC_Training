@@ -9,16 +9,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.mvp_dagger.R;
+import com.example.user.mvp_dagger.di.repolist.DaggerRepoListComponent;
 import com.example.user.mvp_dagger.model.Repo;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class RepoList extends AppCompatActivity implements RepoListContract.View{
 
 
+    @Inject
+    RepoListPresenter presenter;
+
+    @Inject
+    RepoListPresenter presenter2;
+
     private static final String TAG = "RepoListTag";
+
     private TextView textView;
-    private RepoListPresenter presenter;
+
     private EditText etFirstname;
     private EditText etLastname;
 
@@ -27,15 +37,24 @@ public class RepoList extends AppCompatActivity implements RepoListContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setupDaggerComponent();
+        bindViews();
+
+        Log.d(TAG, "onCreate: "+ presenter.toString());
+        Log.d(TAG, "onCreate: "+ presenter2.toString());
+
+        presenter.attachView(this);
+        presenter.getRepos("manroopsingh");
+    }
+
+    private void bindViews() {
         textView = findViewById(R.id.tvFullName);
         etFirstname = findViewById(R.id.etFirstName);
         etLastname = findViewById(R.id.etLastName);
+    }
 
-        Log.d(TAG, "onCreate: ");
-        presenter = new RepoListPresenter();
-        presenter.attachView(this);
-
-        presenter.getRepos("manroopsingh");
+    private void setupDaggerComponent() {
+        DaggerRepoListComponent.create().inject(this);
     }
 
     public void addNames(View view) {
