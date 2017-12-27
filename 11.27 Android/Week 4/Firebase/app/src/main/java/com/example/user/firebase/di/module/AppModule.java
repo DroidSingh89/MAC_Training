@@ -24,10 +24,10 @@ public class AppModule {
     }
 
 
-//    @Provides
-//    LoginAuthenticator providesloginAuthenticator() {
-//        return new LoginAuthenticator(firebaseAuth);
-//    }
+    @Provides
+    LoginAuthenticator providesLoginAuthenticator() {
+        return new LoginAuthenticator(firebaseAuth);
+    }
 
     @Provides
     FireBaseWrapper providesFireBaseWrapper() {

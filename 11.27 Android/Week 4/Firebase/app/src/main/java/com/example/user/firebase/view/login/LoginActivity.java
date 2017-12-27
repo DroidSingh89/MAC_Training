@@ -10,12 +10,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.user.firebase.R;
+import com.example.user.firebase.utils.FireBaseApplication;
 import com.example.user.firebase.view.movie.MovieActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import javax.inject.Inject;
 
 import static android.content.ContentValues.TAG;
 
@@ -23,11 +27,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private EditText etEmail;
     private EditText etPassword;
-    private FirebaseAuth firebaseAuth;
-    private LoginAuthenticator loginAuthenticator;
-    private LoginPresenter presenter;
+
     private String email;
     private String password;
+
+    @Inject
+    LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +42,18 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
         bindViews();
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        setupDaggerComponent();
 
-        loginAuthenticator = new LoginAuthenticator(firebaseAuth, this);
-        presenter = new LoginPresenter(loginAuthenticator);
         presenter.attachView(this);
         presenter.checkSession();
 
+    }
+
+    private void setupDaggerComponent() {
+        FireBaseApplication
+                .get(this)
+                .getLoginComponent(this)
+                .inject(this);
     }
 
     private void bindViews() {
@@ -76,12 +86,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
+    public void onSignOut(Boolean isSignedOut) {
+
+    }
+
+    @Override
     public void onUserCreation(boolean isCreated) {
 
         Log.d(TAG, "onUserCreation: " + isCreated);
 
         if(isCreated)
-            showToast("User created");
+            showToast("User created, please sign in");
         else
             showToast("User not created");
     }
@@ -90,8 +105,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void onUserValidation(boolean isValid) {
 
         Log.d(TAG, "onUserValidation: " + isValid);
-        if(isValid)
+        if(isValid){
+
             showToast("Signed In");
+            startMovieActivity();
+        }
+
+
         else
             showToast("Sign in failed");
 
@@ -103,10 +123,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
 
         if(isValid){
-            Intent intent = new Intent(getApplicationContext(), MovieActivity.class);
-            startActivity(intent);
+            startMovieActivity();
         }
 
+    }
+
+    private void startMovieActivity() {
+        Intent intent = new Intent(getApplicationContext(), MovieActivity.class);
+        startActivity(intent);
     }
 
     public void showToast(String message){

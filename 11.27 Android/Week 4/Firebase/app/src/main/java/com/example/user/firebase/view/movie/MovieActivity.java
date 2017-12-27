@@ -1,19 +1,25 @@
 package com.example.user.firebase.view.movie;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.user.firebase.R;
-import com.example.user.firebase.data.firebase.FireBaseWrapper;
 import com.example.user.firebase.model.Movie;
-import com.example.user.firebase.utils.FirebaseApplication;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.user.firebase.utils.FireBaseApplication;
+import com.example.user.firebase.view.login.LoginActivity;
+import com.example.user.firebase.view.login.LoginAuthenticator;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
-public class MovieActivity extends AppCompatActivity {
+
+public class MovieActivity extends AppCompatActivity implements MovieContract.View{
 
     @Inject
     MoviePresenter moviePresenter;
@@ -28,9 +34,13 @@ public class MovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        FirebaseApplication.get(this).getMovieComponent().inject(this);
+        setupDaggerComponent();
 
         bindView();
+    }
+
+    private void setupDaggerComponent() {
+        FireBaseApplication.get(this).getMovieComponent().inject(this);
     }
 
     private void bindView() {
@@ -54,5 +64,35 @@ public class MovieActivity extends AppCompatActivity {
     public void getMovies(View view) {
 
         moviePresenter.getMovieList();
+    }
+
+    public void onFireBaseSignOut(View view) {
+
+        moviePresenter.signOut();
+
+    }
+
+    @Override
+    public void showError(String error) {
+
+    }
+
+    @Override
+    public void onSignOut(Boolean isSignedOut) {
+
+        if (isSignedOut) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onMovieAdded(boolean isAdded) {
+
+    }
+
+    @Override
+    public void onMovieListReceived(List<Movie> movies) {
+
     }
 }

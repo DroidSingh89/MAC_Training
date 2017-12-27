@@ -1,5 +1,6 @@
 package com.example.user.firebase.utils;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -8,6 +9,7 @@ import com.example.user.firebase.di.component.DaggerAppComponent;
 import com.example.user.firebase.di.component.LoginComponent;
 import com.example.user.firebase.di.component.MovieComponent;
 import com.example.user.firebase.di.module.AppModule;
+import com.example.user.firebase.di.module.LoginModule;
 import com.example.user.firebase.di.module.MovieModule;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,13 +18,15 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by singh on 12/21/17.
  */
 
-public class FirebaseApplication extends Application {
+public class FireBaseApplication extends Application {
 
     AppComponent appComponent;
     LoginComponent loginComponent;
     MovieComponent movieComponent;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
+    private LoginModule loginModule;
+    Context context1;
 
 
     @Override
@@ -37,21 +41,44 @@ public class FirebaseApplication extends Application {
                 .appModule(appModule)
                 .build();
 
+        createMovieComponent();
+        createLoginComponent();
     }
 
-    public static FirebaseApplication get(Context context) {
-        return (FirebaseApplication) context.getApplicationContext();
+    public static FireBaseApplication get(Context context) {
+
+        return (FireBaseApplication) context.getApplicationContext();
     }
 
-    public MovieComponent getMovieComponent() {
+
+    public void createMovieComponent(){
         movieComponent = appComponent.add(new MovieModule());
+    }
+    public MovieComponent getMovieComponent() {
         return movieComponent;
 
     }
 
-
     public void clearMovieComponent() {
         movieComponent = null;
     }
+
+
+    public void createLoginComponent(){
+
+        loginModule = new LoginModule();
+        loginComponent = appComponent.add(loginModule);
+    }
+    public LoginComponent getLoginComponent(Activity activity) {
+        loginModule.setActivity(activity);
+        return loginComponent;
+
+    }
+
+    public void clearLoginComponent() {
+        loginComponent = null;
+    }
+
+
 
 }

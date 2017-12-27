@@ -1,15 +1,19 @@
 package com.example.user.firebase.view.login;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.user.firebase.utils.BasePresenter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Arrays;
 
 import static android.content.ContentValues.TAG;
 
@@ -21,14 +25,15 @@ public class LoginAuthenticator {
 
 
     FirebaseAuth auth;
-    LoginActivity activity;
+    Activity activity;
     FirebaseUser user;
     OnLoginInteraction onLoginInteraction;
+    OnSignOutInteraction onSignOutInteraction;
 
-    public LoginAuthenticator(FirebaseAuth auth, LoginActivity activity) {
+    public LoginAuthenticator(FirebaseAuth auth) {
         this.auth = auth;
-        this.activity = activity;
     }
+
 
     public void validateUser(String email, String password, LoginPresenter loginPresenter) {
 
@@ -84,8 +89,15 @@ public class LoginAuthenticator {
 
     }
 
-    public void initInteractor(LoginPresenter loginPresenter) {
-        onLoginInteraction = loginPresenter;
+    public void attach(Object object) {
+        if (object instanceof BasePresenter) {
+            if (object instanceof LoginPresenter)
+                onLoginInteraction = (OnLoginInteraction) object;
+            onSignOutInteraction = (OnSignOutInteraction) object;
+        }
+
+        if (object instanceof Activity)
+            activity = (Activity) object;
     }
 
     public void checkUser() {
@@ -99,6 +111,17 @@ public class LoginAuthenticator {
 
     }
 
+    public FirebaseUser getUser() {
+        return user;
+    }
+
+    public void signOut() {
+        auth.signOut();
+
+        onSignOutInteraction.onSignOut(true);
+
+    }
+
 
     interface OnLoginInteraction {
 
@@ -108,7 +131,10 @@ public class LoginAuthenticator {
 
         void onSessionValid(boolean isValid);
 
+    }
 
+    public interface OnSignOutInteraction {
+        void onSignOut(boolean isSignedOut);
     }
 
 

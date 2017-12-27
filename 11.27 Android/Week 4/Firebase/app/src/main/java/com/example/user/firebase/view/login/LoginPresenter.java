@@ -8,7 +8,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPresenter implements
         LoginContract.Presenter,
-        LoginAuthenticator.OnLoginInteraction {
+        LoginAuthenticator.OnLoginInteraction,
+LoginAuthenticator.OnSignOutInteraction{
 
 
     LoginContract.View view;
@@ -16,7 +17,7 @@ public class LoginPresenter implements
 
     public LoginPresenter(LoginAuthenticator loginAuthenticator) {
         this.loginAuthenticator = loginAuthenticator;
-        loginAuthenticator.initInteractor(this);
+        loginAuthenticator.attach(this);
 
     }
 
@@ -28,6 +29,11 @@ public class LoginPresenter implements
     @Override
     public void detachView() {
         this.view = null;
+
+    }
+
+    @Override
+    public void signOut() {
 
     }
 
@@ -75,5 +81,10 @@ public class LoginPresenter implements
     public void onSessionValid(boolean isValid) {
 
         view.isSessionValid(isValid);
+    }
+
+    @Override
+    public void onSignOut(boolean isSignedOut) {
+
     }
 }

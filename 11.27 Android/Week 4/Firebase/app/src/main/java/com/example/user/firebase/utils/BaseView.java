@@ -7,4 +7,6 @@ package com.example.user.firebase.utils;
 public interface BaseView {
 
     void showError(String error);
+
+    void onSignOut(Boolean isSignedOut);
 }
