@@ -26,7 +26,7 @@ public class FireBaseApplication extends Application {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private LoginModule loginModule;
-    Context context1;
+
 
 
     @Override

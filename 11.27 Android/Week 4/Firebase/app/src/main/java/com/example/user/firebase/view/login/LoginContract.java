@@ -17,6 +17,10 @@ public interface LoginContract {
 
         void isSessionValid(boolean isValid);
 
+
+
+
+
     }
 
     interface Presenter extends BasePresenter<View> {
@@ -26,6 +30,8 @@ public interface LoginContract {
         void createUser(String email, String password);
 
         void checkSession();
+
+
 
     }
 }
