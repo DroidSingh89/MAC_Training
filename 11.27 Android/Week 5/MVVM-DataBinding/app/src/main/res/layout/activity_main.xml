@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="person"
+            type="com.example.user.mvvm_databinding.model.Person"/>
+
+        <variable
+            name="viewmodel"
+            type="com.example.user.mvvm_databinding.MainViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.user.mvvm_databinding.MainActivity">
+
+        <!--Display person object-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.firstNameObs}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.lastNameObs}"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewmodel::onClick}"
+            android:text="Simple on click"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> viewmodel.onClickWithPerson(view, person)}"
+            android:text="Click and send person"/>
+
+        <EditText
+            android:hint="First name"
+            android:addTextChangedListener = "@{person.watcherFirstName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="First name"
+            android:addTextChangedListener = "@{person.watcherLastName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:onClick="@{(view) -> viewmodel.onClickObsPerson(view, person)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+</layout>
