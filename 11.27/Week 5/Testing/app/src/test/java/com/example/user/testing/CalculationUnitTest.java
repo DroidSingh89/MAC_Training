@@ -1,5 +1,8 @@
 package com.example.user.testing;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.validateMockitoUsage;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -49,6 +53,12 @@ public class CalculationUnitTest {
 
         when(multiplication.multiply(val1, val2)).thenReturn(45);
         assertEquals(calculation.multipy(val1,val2), 450);
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @Test
+    public void was_methos_Called() {
+
     }
 
     @After
