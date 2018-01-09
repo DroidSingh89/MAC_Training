@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
     private static final String TAG = MainActivity.class.getSimpleName();
+    private EditText etPlainText;
+    private TextView tvEncryptedText;
+    private KeystoreWrapper keystoreWrapper;
+    private CipherWrapper cipherWrapper;
+    private KeyPair masterKey;
 
 
     @Override
@@ -33,24 +38,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText etPlainText = findViewById(R.id.etPlainText);
-        TextView tvEncryptedText = findViewById(R.id.tvEncryptedText);
+        etPlainText = findViewById(R.id.etPlainText);
+        tvEncryptedText = findViewById(R.id.tvEncryptedText);
 
         try {
-            KeystoreWrapper keystoreWrapper = new KeystoreWrapper(getApplicationContext());
-            CipherWrapper cipherWrapper = new CipherWrapper(TRANSFORMATION);
+            keystoreWrapper = new KeystoreWrapper(getApplicationContext());
+            cipherWrapper = new CipherWrapper(TRANSFORMATION);
 
             keystoreWrapper.createKeyPair("master");
-            KeyPair masterKey = keystoreWrapper.getAsymKey("master");
+            masterKey = keystoreWrapper.getAsymKey("master");
 
-            String plainText = "Hello world";
-            Log.d(TAG, "onCreate: PlainText: " + plainText);
-
-            String encryptedData = cipherWrapper.encrypt(plainText, masterKey.getPublic());
-            Log.d(TAG, "onCreate: EncryptedData: " + encryptedData);
-
-            String decryptedData = cipherWrapper.decrypt(encryptedData, masterKey.getPrivate());
-            Log.d(TAG, "onCreate: DecryptedData:" + decryptedData);
 
 
         } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException | NoSuchPaddingException | IOException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException | UnrecoverableKeyException | NoSuchProviderException e) {
@@ -58,6 +55,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onDataEncrypt(View view) {
+    public void onDataEncrypt(View view) throws BadPaddingException, InvalidKeyException, IllegalBlockSizeException {
+
+        String plainText = etPlainText.getText().toString();
+        Log.d(TAG, "onCreate: PlainText: " + plainText);
+
+        String encryptedData = cipherWrapper.encrypt(plainText, masterKey.getPublic());
+        Log.d(TAG, "onCreate: EncryptedData: " + encryptedData);
+
+        String decryptedData = cipherWrapper.decrypt(encryptedData, masterKey.getPrivate());
+        Log.d(TAG, "onCreate: DecryptedData:" + decryptedData);
+
+        tvEncryptedText.setText(decryptedData);
     }
 }
