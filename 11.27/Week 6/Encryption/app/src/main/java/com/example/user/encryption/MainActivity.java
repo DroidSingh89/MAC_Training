@@ -3,6 +3,9 @@ package com.example.user.encryption;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText etPlainText = findViewById(R.id.etPlainText);
+        TextView tvEncryptedText = findViewById(R.id.tvEncryptedText);
+
         try {
             KeystoreWrapper keystoreWrapper = new KeystoreWrapper(getApplicationContext());
             CipherWrapper cipherWrapper = new CipherWrapper(TRANSFORMATION);
@@ -50,5 +56,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException | NoSuchPaddingException | IOException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException | UnrecoverableKeyException | NoSuchProviderException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onDataEncrypt(View view) {
     }
 }
