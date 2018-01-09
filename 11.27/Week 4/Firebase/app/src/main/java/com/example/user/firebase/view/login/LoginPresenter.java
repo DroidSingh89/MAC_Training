@@ -75,4 +75,8 @@ public class LoginPresenter implements
     public void onSignOut(boolean isSignedOut) {
 
     }
+
+    public int checkInt(int value) {
+        return value + 10;
+    }
 }

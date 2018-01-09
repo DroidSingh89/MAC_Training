@@ -24,7 +24,7 @@ import javax.crypto.NoSuchPaddingException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
+    public static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
     private static final String TAG = MainActivity.class.getSimpleName();
     private EditText etPlainText;
     private TextView tvEncryptedText;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException | NoSuchPaddingException | IOException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException | UnrecoverableKeyException | NoSuchProviderException e) {
+        } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException | NoSuchPaddingException | IOException | InvalidAlgorithmParameterException | UnrecoverableKeyException | NoSuchProviderException e) {
             e.printStackTrace();
         }
     }
