@@ -33,12 +33,6 @@ public class FirstDayCoding {
         stringList.add("a");
 
 
-
-        git add .
-
-        git commit -m "second"
-
-                git push -u origin master
     }
 
 
