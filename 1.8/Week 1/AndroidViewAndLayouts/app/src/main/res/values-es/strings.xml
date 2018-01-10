@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidViewAndLayouts</string>
+    <string name="some_text">Some text</string>
+    <string name="something_else">Something else</string>
+    <string name="firsttextview">UnoTextView</string>
+    <string name="secondtextview">DosTextView</string>
+</resources>
