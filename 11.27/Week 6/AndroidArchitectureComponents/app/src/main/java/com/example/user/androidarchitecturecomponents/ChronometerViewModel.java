@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
  * Created by singh on 1/10/18.
  */
 
-public class ChromometerViewModel extends ViewModel{
+public class ChronometerViewModel extends ViewModel{
 
 
     @Nullable

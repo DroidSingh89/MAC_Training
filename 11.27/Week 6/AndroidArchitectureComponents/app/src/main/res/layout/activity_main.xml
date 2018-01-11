@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.user.androidarchitecturecomponents.MainActivity">
 
+    <!--Using view model-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using View Model"/>
+
     <Chronometer
-        android:textSize="20sp"
         android:id="@+id/myChronometer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:textSize="20sp"/>
 
-</android.support.constraint.ConstraintLayout>
+    <!--Using live data view model-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using Live Data View Model"/>
+
+    <TextView
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:id="@+id/tvLiveDataTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
