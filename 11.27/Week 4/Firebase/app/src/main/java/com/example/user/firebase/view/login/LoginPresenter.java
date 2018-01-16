@@ -73,7 +73,7 @@ public class LoginPresenter implements
 
     @Override
     public void onSignOut(boolean isSignedOut) {
-
+        view.onSignOut(isSignedOut);
     }
 
     public int checkInt(int value) {

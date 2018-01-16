@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity
         ButterKnife.bind(this);
         setupDaggerComponent();
 
+        
         //handle notification
         articleName = getIntent().getStringExtra("name");
         articleId = getIntent().getStringExtra("id");

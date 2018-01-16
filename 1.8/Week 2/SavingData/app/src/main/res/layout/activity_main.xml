@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.savingdata.MainActivity">
+
+    <!--shared preferences-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using shared preferences"/>
+
+    <EditText
+        android:id="@+id/etSaveValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSaveValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSharedPref"
+        android:text="Save value"/>
+
+    <Button
+        android:id="@+id/btnRetrieveValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSharedPref"
+        android:text="Get value"/>
+
+    <TextView
+        android:id="@+id/tvDisplayValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Default value"/>
+
+    <!--SQLIte-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using SQLite"/>
+
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSavePerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onHandlingDatabase"
+        android:text="Save person to DB"/>
+
+    <Button
+        android:id="@+id/btnGetPersonList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onHandlingDatabase"
+        android:text="Get person list"/>
+
+    <!--list view-->
+    <ListView
+        android:id="@+id/lvPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
