@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.user.listlikeviews.model.Person;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -41,6 +43,8 @@ public class CustomListAdapter extends ArrayAdapter<Person> {
                             .from(parent.getContext())
                             .inflate(R.layout.custom_list_item, null);
         }
+
+        
 
 //        bind the views to set data
         TextView tvPersonName = convertView.findViewById(R.id.tvPersonName);
