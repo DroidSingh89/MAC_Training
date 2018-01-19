@@ -1,5 +1,6 @@
 package com.example.user.listlikeviews;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -68,4 +69,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onRecyclerActivity(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), RecyclerActivity.class);
+        startActivity(intent);
+
+
+    }
 }

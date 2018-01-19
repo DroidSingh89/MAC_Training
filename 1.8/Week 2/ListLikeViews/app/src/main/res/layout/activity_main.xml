@@ -8,6 +8,13 @@
     android:orientation="vertical"
     tools:context="com.example.user.listlikeviews.MainActivity">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRecyclerActivity"
+        android:text="Go to recycler view"/>
+
+
     <!--using simple listview-->
     <EditText
         android:id="@+id/etItems"

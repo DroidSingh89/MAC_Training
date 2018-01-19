@@ -23,6 +23,18 @@ public class LocalDataSource {
         personList.add(new Person("Jennifer Anniston", "53", "Female"));
         personList.add(new Person("Kate Middleton", "30", "Female"));
         personList.add(new Person("Dave Chappelle", "47", "Male"));
+        personList.add(new Person("Tom Cruise", "53", "Male"));
+        personList.add(new Person("Jim Carrey", "57", "Male"));
+        personList.add(new Person("Bill Gates", "63", "Male"));
+        personList.add(new Person("Jennifer Anniston", "53", "Female"));
+        personList.add(new Person("Kate Middleton", "30", "Female"));
+        personList.add(new Person("Dave Chappelle", "47", "Male"));
+        personList.add(new Person("Tom Cruise", "53", "Male"));
+        personList.add(new Person("Jim Carrey", "57", "Male"));
+        personList.add(new Person("Bill Gates", "63", "Male"));
+        personList.add(new Person("Jennifer Anniston", "53", "Female"));
+        personList.add(new Person("Kate Middleton", "30", "Female"));
+        personList.add(new Person("Dave Chappelle", "47", "Male"));
 
         return personList;
     }
