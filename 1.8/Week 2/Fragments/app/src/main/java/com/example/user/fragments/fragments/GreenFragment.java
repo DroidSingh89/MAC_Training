@@ -3,14 +3,18 @@ package com.example.user.fragments.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.user.fragments.R;
 
-public class GreenFragment extends Fragment {
+public class GreenFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -18,6 +22,9 @@ public class GreenFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private TextView tvGreenFrag;
+    private EditText etGreenFrag;
+    private Button btnGreenFrag;
 
     public GreenFragment() {
         // Required empty public constructor
@@ -48,6 +55,26 @@ public class GreenFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_green, container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //bind the view in the fragment
+        tvGreenFrag = view.findViewById(R.id.tvGreenFrag);
+        etGreenFrag = view.findViewById(R.id.etGreenFrag);
+        btnGreenFrag = view.findViewById(R.id.btnGreenFrag);
+        btnGreenFrag.setOnClickListener(this);
+
+    }
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        tvGreenFrag.setText(mParam1 + " " + mParam2);
+
+    }
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -70,8 +97,24 @@ public class GreenFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    @Override
+    public void onClick(View v) {
+
+        String etData = etGreenFrag.getText().toString();
+
+        if (mListener != null) {
+            mListener.onButtonClick(etData);
+        }
+
+
+    }
+
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
+
+        void onButtonClick(String s);
+
     }
 }

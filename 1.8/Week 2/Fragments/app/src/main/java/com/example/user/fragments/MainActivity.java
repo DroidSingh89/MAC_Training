@@ -1,19 +1,25 @@
 package com.example.user.fragments;
 
 
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.example.user.fragments.fragments.GreenFragment;
 import com.example.user.fragments.fragments.RedFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements GreenFragment.OnFragmentInteractionListener{
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private static final String RED_FRAGMENT_TAG = RedFragment.class.getSimpleName();
+    private static final String GREEN_FRAG_TAG = GreenFragment.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,5 +91,39 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-}
 
+    public void onHandlingGreen(View view) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        switch (view.getId()) {
+
+            case R.id.btnAddGreen:
+
+                GreenFragment greenFragment =
+                        GreenFragment.newInstance("John" , "Doe");
+
+                fragmentManager.beginTransaction()
+                        .add(R.id.flGreenFragment, greenFragment, GREEN_FRAG_TAG)
+                        .addToBackStack(GREEN_FRAG_TAG)
+                        .commit();
+                break;
+
+            case R.id.btnRemoveGreen:
+
+                break;
+        }
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onButtonClick(String s) {
+
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+}

@@ -37,4 +37,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <!--handling green fragment-->
+    <Button
+        android:id="@+id/btnAddGreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onHandlingGreen"
+        android:text="Add green"/>
+
+    <Button
+        android:id="@+id/btnRemoveGreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onHandlingGreen"
+        android:text="Remove green"/>
+
+    <!--placeholder for the green fragment-->
+    <FrameLayout
+        android:id="@+id/flGreenFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
