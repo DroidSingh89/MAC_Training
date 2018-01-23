@@ -9,16 +9,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.user.fragments.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RedFragment extends Fragment {
+public class RedFragment extends Fragment implements View.OnClickListener {
 
 
     public static final String TAG = RedFragment.class.getSimpleName();
+
+    onFragmentInteraction listener;
+    private EditText etRedFrag;
+    private Button btnRedFrag;
+
     public RedFragment() {
         // Required empty public constructor
     }
@@ -27,6 +35,8 @@ public class RedFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.d(TAG, "onAttach: ");
+
+        listener = (onFragmentInteraction) context;
     }
 
     @Override
@@ -42,6 +52,12 @@ public class RedFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d(TAG, "onViewCreated: ");
 
+        //bind the views
+        etRedFrag = view.findViewById(R.id.etRedFrag);
+        btnRedFrag = view.findViewById(R.id.btnRedFrag);
+        btnRedFrag.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -49,7 +65,6 @@ public class RedFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Log.d(TAG, "onActivityCreated: ");
     }
-
 
     @Override
     public void onStart() {
@@ -93,6 +108,22 @@ public class RedFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         Log.d(TAG, "onDetach: ");
+        listener = null;
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        listener.onDataToGreen(etRedFrag.getText().toString());
+
+
+    }
+
+
+    public interface onFragmentInteraction{
+        void onDataToGreen(String s);
+
     }
 }
 

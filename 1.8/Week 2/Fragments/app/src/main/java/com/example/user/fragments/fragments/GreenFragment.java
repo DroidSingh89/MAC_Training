@@ -110,6 +110,11 @@ public class GreenFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    public void updateTextView(String data) {
+        tvGreenFrag.setText(data);
+
+    }
+
     public interface OnFragmentInteractionListener {
 
         void onFragmentInteraction(Uri uri);

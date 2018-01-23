@@ -6,9 +6,30 @@
              tools:context="com.example.user.fragments.fragments.RedFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment"/>
+
+        <EditText
+            android:id="@+id/etRedFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnRedFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send data to green"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>

@@ -14,11 +14,13 @@ import com.example.user.fragments.fragments.GreenFragment;
 import com.example.user.fragments.fragments.RedFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements GreenFragment.OnFragmentInteractionListener{
+        implements GreenFragment.OnFragmentInteractionListener,
+RedFragment.onFragmentInteraction{
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private static final String RED_FRAGMENT_TAG = RedFragment.class.getSimpleName();
     private static final String GREEN_FRAG_TAG = GreenFragment.class.getSimpleName();
+    private FragmentManager fragmentManager;
 
 
     @Override
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: ");
+        fragmentManager = getSupportFragmentManager();
+
 
     }
 
@@ -94,19 +98,13 @@ public class MainActivity extends AppCompatActivity
 
     public void onHandlingGreen(View view) {
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+
 
         switch (view.getId()) {
 
             case R.id.btnAddGreen:
 
-                GreenFragment greenFragment =
-                        GreenFragment.newInstance("John" , "Doe");
-
-                fragmentManager.beginTransaction()
-                        .add(R.id.flGreenFragment, greenFragment, GREEN_FRAG_TAG)
-                        .addToBackStack(GREEN_FRAG_TAG)
-                        .commit();
+                addGreenFragment("John", "Doe");
                 break;
 
             case R.id.btnRemoveGreen:
@@ -114,6 +112,16 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
 
+    }
+
+    private void addGreenFragment(String data, String data2) {
+        GreenFragment greenFragment =
+                GreenFragment.newInstance(data , data2);
+
+        fragmentManager.beginTransaction()
+                .add(R.id.flGreenFragment, greenFragment, GREEN_FRAG_TAG)
+                .addToBackStack(GREEN_FRAG_TAG)
+                .commit();
     }
 
     @Override
@@ -125,5 +133,22 @@ public class MainActivity extends AppCompatActivity
     public void onButtonClick(String s) {
 
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDataToGreen(String s) {
+
+        //check if the green fragment is visible or not
+
+        GreenFragment greenFragment
+                = (GreenFragment) fragmentManager.findFragmentByTag(GREEN_FRAG_TAG);
+
+        if (greenFragment != null) {
+            greenFragment.updateTextView(s);
+        }
+        else{
+            addGreenFragment("Data from Red: ",s);
+        }
+
     }
 }
