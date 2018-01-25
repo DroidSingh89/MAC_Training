@@ -41,5 +41,19 @@
         android:onClick="onHandlingThreads"
         android:text="using AsyncTask"/>
 
+    <Button
+        android:id="@+id/btnRxJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onHandlingThreads"
+        android:text="using RxJava"/>
+
+    <Button
+        android:id="@+id/btnEventbus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onHandlingThreads"
+        android:text="using Eventbus"/>
+
 
 </LinearLayout>

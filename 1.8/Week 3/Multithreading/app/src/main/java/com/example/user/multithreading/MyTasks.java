@@ -22,7 +22,7 @@ public class MyTasks {
             Log.d(TAG, "run: "
                     + i
                     + "Thread: "
-                    + Thread.currentThread().getName());
+                    + Thread.currentThread().toString());
         }
         Log.d(TAG, "startSimpleJob: Task completed");
     }
