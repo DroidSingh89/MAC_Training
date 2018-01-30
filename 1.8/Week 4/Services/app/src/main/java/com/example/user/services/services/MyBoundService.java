@@ -5,23 +5,14 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
-/*
-df
-s
-sdf
-sdf
-f
-sd
-sdf
+import com.example.user.services.data.LocalDataSource;
 
-
-
-*/
-
+import java.util.List;
 
 public class MyBoundService extends Service {
 
     private String data;
+    private List<String> stringList;
 
     public MyBoundService() {
     }
@@ -34,7 +25,6 @@ public class MyBoundService extends Service {
             return MyBoundService.this;
         }
 
-
     }
 
     @Override
@@ -44,10 +34,16 @@ public class MyBoundService extends Service {
 
     //init data
     public void init() {
-        data = "Some data";
+        stringList = LocalDataSource.getSimpleData(10);
     }
 
-    public String getData() {
-        return data;
+    public List<String> getData() {
+        return stringList;
+    }
+
+    public void addToData(String name) {
+
+        stringList.add(name);
+
     }
 }

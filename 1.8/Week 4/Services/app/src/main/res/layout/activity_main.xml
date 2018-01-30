@@ -40,10 +40,48 @@
         android:onClick="handlingServices"
         android:text="Bind service"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add names to bound service"/>
+
+    <EditText
+        android:id="@+id/etStringName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAddToList"
+        android:text="Add to list"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onListReceived"
+        android:text="Get list from service"/>
+
     <Button
         android:id="@+id/unbindService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="handlingServices"
         android:text="Unbind service"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSecondActivity"
+        android:text="Go to Second"/>
+
+    <!--Schedule service-->
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Schedule a service"/>
+
+
 </LinearLayout>
