@@ -18,6 +18,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -30,7 +33,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+//        setContentView(R.layout.activity_main);
 
         tvmain = findViewById(R.id.tvMain);
 
@@ -83,7 +87,9 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
     @Override
+
     public boolean handleMessage(Message msg) {
 
         tvmain.setText(msg.getData().getString("KEY"));
@@ -95,6 +101,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+        setContentView(R.layout.activity_main);
         EventBus.getDefault().register(this);
     }
 
