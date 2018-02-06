@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.makingrestcalls.MainActivity">
+
+    <Button
+        android:id="@+id/btnNative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMakingRestCall"
+        android:text="Using Native"/>
+
+    <Button
+        android:id="@+id/btnOkHttpSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMakingRestCall"
+        android:text="Using OkHttp (Sync)"/>
+
+    <Button
+        android:id="@+id/btnOkHttpAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMakingRestCall"
+        android:text="Using OkHttp (Async)"/>
+
+    <Button
+        android:id="@+id/btnRetrofitSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMakingRestCall"
+        android:text="Using RetrofitSync"/>
+
+    <Button
+        android:id="@+id/btnRetrofitAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMakingRestCall"
+        android:text="Using RetrofitAsync"/>
+
+    <TextView
+        android:id="@+id/tvResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"/>
+</LinearLayout>

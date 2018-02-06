@@ -22,6 +22,7 @@ public class MyReceiverOne extends BroadcastReceiver {
         Log.d(TAG, "onReceive: ");
         onBroadcastInteraction
                 .onBroadcastReceived(intent.getStringExtra("data"));
+
     }
 
 
