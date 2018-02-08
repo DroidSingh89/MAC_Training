@@ -43,6 +43,13 @@
         android:onClick="onMakingRestCall"
         android:text="Using RetrofitAsync"/>
 
+    <Button
+        android:id="@+id/btnRetrofitRxJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMakingRestCall"
+        android:text="Using RetrofitRxJava"/>
+
     <TextView
         android:id="@+id/tvResults"
         android:layout_width="match_parent"

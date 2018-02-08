@@ -28,13 +28,13 @@ public class HandlerUtils {
 
     public void setReceiver(Handler handler) {
         this.handler = handler;
-        message = new Message();
-        bundle = new Bundle();
 
     }
 
 
     public void sendStringToMain(String msg, int MODE) {
+        message = new Message();
+        bundle = new Bundle();
 
         switch (MODE) {
             case MODE_HTTP:
