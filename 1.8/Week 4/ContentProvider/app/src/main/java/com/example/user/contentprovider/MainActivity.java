@@ -98,16 +98,56 @@ public class MainActivity extends AppCompatActivity {
         Cursor contactsCursor = getContentResolver().query(contactUri,
                 null
                 , null
-                , null);
+                , null
+        );
 
         while (contactsCursor.moveToNext()) {
 
             //get column index
-            int columnIndex = contactsCursor.getColumnIndex(DISPLAY_NAME);
-            String contactName = contactsCursor.getString(columnIndex);
+            int nameColumnIndex = contactsCursor.getColumnIndex(DISPLAY_NAME);
+            String contactName = contactsCursor.getString(nameColumnIndex);
 
             Log.d(TAG, "getContacts: "+ contactName);
             //check if has phone number then print out numbers
+
+            int phoneColumnIndex = contactsCursor.getColumnIndex(HAS_PHONE_NUMBER);
+            int hasPhone = contactsCursor.getInt(phoneColumnIndex);
+
+            if (hasPhone > 0) {
+                //print all numbers
+                Uri phoneUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+
+                String NUMBER = ContactsContract.CommonDataKinds.Phone.NUMBER;
+
+                String[] projection = new String[]{NUMBER};
+                String selection = DISPLAY_NAME + "= ?";
+                String[] selectionArgs = new String[]{contactName};
+
+                /*
+                Select {projection} where {selection} {selectionArgs}
+                */
+
+
+                Cursor phoneCursor = getContentResolver().query(
+                        phoneUri,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        NUMBER + " ASC"
+                );
+
+
+                while (phoneCursor.moveToNext()) {
+
+                    int phoneColIndex = phoneCursor.getColumnIndex(NUMBER);
+                    String phoneNumber = phoneCursor.getString(phoneColIndex);
+
+                    Log.d(TAG, "getContacts: " + phoneNumber);
+
+                }
+
+
+            }
 
         }
     }
