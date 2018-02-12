@@ -3,6 +3,11 @@ package com.example.user.contentprovider;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.ContactsContract;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -81,9 +86,30 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void getContacts() {
 
+        Uri contactUri = ContactsContract.Contacts.CONTENT_URI;
 
+        String DISPLAY_NAME = ContactsContract.Contacts.DISPLAY_NAME;
+        String HAS_PHONE_NUMBER = ContactsContract.Contacts.HAS_PHONE_NUMBER;
+
+        Cursor contactsCursor = getContentResolver().query(contactUri,
+                null
+                , null
+                , null);
+
+        while (contactsCursor.moveToNext()) {
+
+            //get column index
+            int columnIndex = contactsCursor.getColumnIndex(DISPLAY_NAME);
+            String contactName = contactsCursor.getString(columnIndex);
+
+            Log.d(TAG, "getContacts: "+ contactName);
+            //check if has phone number then print out numbers
+
+        }
     }
 
     @Override

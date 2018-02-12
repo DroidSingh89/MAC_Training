@@ -1,5 +1,6 @@
 package com.example.user.mvp_dagger.view.main;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,29 +8,42 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.mvp_dagger.BuildConfig;
 import com.example.user.mvp_dagger.R;
+import com.example.user.mvp_dagger.di.DaggerMainComponent;
 import com.example.user.mvp_dagger.model.StringBean;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
 
     private TextView tvMain;
     private EditText etMain;
-    private MainPresenter presenter;
+
+    @Inject
+    public MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bindViews();
+        //initialize the dagger component
+        DaggerMainComponent
+                .create()
+                .inject(this);
 
-        etMain = findViewById(R.id.etMain);
-        tvMain = findViewById(R.id.tvMain);
-
-        presenter = new MainPresenter();
         presenter.attachView(this);
 
+
+    }
+
+    private void bindViews() {
+        etMain = findViewById(R.id.etMain);
+        tvMain = findViewById(R.id.tvMain);
     }
 
     public void onTextViewUpdate(View view) {
@@ -75,4 +89,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         presenter.getStringList();
     }
+
+
 }
