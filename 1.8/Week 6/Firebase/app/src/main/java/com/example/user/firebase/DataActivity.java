@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
+import com.example.user.firebase.model.Movie;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class DataActivity extends AppCompatActivity {
+public class DataActivity extends AppCompatActivity implements LoginAuthenticator.onLoginInteraction{
 
-    FirebaseAuth firebaseAuth;
+    private LoginAuthenticator loginAuthenticator;
+    private FirebaseDB firebaseDB;
+    private EditText etSimpleData;
+    private EditText etMovie;
 
 
     @Override
@@ -18,17 +23,67 @@ public class DataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        loginAuthenticator = new LoginAuthenticator(this);
+        firebaseDB = new FirebaseDB();
+
+        etSimpleData = findViewById(R.id.etSimpleData);
+        etMovie = findViewById(R.id.etMovie);
     }
 
     public void onUserSignOut(View view) {
 
-        firebaseAuth.signOut();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        loginAuthenticator.signOut();
+        FirebaseUser firebaseUser = loginAuthenticator.getUser();
         if (firebaseUser == null) {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
 
         }
+    }
+
+    public void onSaveSimpleData(View view) {
+
+        firebaseDB.saveSimpleData(etSimpleData.getText().toString());
+    }
+
+    @Override
+    public void onUserCreation(FirebaseUser firebaseUser) {
+
+    }
+
+    @Override
+    public void onUserAuthenticated(FirebaseUser firebaseUser) {
+
+    }
+
+    @Override
+    public void onSignOut(boolean isSignedOut) {
+
+    }
+
+    public void onSaveMovie(View view) {
+
+        firebaseDB.saveMovie(getMovieFromText(
+                etMovie.getText().toString().split(",")));
+
+    }
+
+
+
+    public Movie getMovieFromText(String[] movieString) {
+        return new Movie(
+                movieString[0],
+                movieString[1],
+                movieString[2],
+                movieString[3],
+                movieString[4]);
+
+    }
+
+
+    public void onMoviesReceived(View view) {
+
+        firebaseDB.getMovies();
+
     }
 }

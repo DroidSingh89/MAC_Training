@@ -8,6 +8,38 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.firebase.DataActivity">
 
+    <!--saving simple data-->
+    <TextView
+        android:text="Saving simple data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/etSimpleData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:onClick="onSaveSimpleData"
+        android:text="Save simple data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--saving movies-->
+    <EditText
+        android:id="@+id/etMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="Save movie"
+        android:onClick="onSaveMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:text="Get movies"
+        android:onClick="onMoviesReceived"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <Button
         android:onClick="onUserSignOut"
         android:text="Sign out"

@@ -15,21 +15,23 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginAuthenticator.onLoginInteraction{
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     private EditText etEmail;
     private EditText etPassword;
     String email, password;
-    private FirebaseAuth mAuth;
+
     private FirebaseUser currentUser;
+    private LoginAuthenticator loginAuthenticator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
+
+        loginAuthenticator = new LoginAuthenticator(this);
 
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -40,14 +42,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        currentUser = mAuth.getCurrentUser();
-
+        currentUser = loginAuthenticator.checkSession();
         if (currentUser != null) {
             goToDataActivity();
 
         }
-
-
     }
 
     private void goToDataActivity() {
@@ -62,58 +61,38 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onAuthenticateUser(View view) {
         initCredentials();
-
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            currentUser = mAuth.getCurrentUser();
-                            goToDataActivity();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-
-
+        loginAuthenticator.authenticateUser(email, password);
 
     }
 
     public void onCreateUser(View view) {
         initCredentials();
+        loginAuthenticator.createUser(email,password);
+    }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            currentUser = mAuth.getCurrentUser();
-                            goToDataActivity();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
-                        }
+    @Override
+    public void onUserCreation(FirebaseUser firebaseUser) {
+        if (firebaseUser != null) {
+            Toast.makeText(this, "Welcome new user", Toast.LENGTH_SHORT).show();
+            goToDataActivity();
+        }
+    }
 
-                        // ...
-                    }
-                });
+    @Override
+    public void onUserAuthenticated(FirebaseUser firebaseUser) {
 
+        if (firebaseUser != null) {
+            Toast.makeText(this, "Welcome back", Toast.LENGTH_SHORT).show();
+            goToDataActivity();
+
+        }
+    }
+
+    @Override
+    public void onSignOut(boolean isSignedOut) {
+
+        if (isSignedOut) {
+            Toast.makeText(this, "User signed out", Toast.LENGTH_SHORT).show();
+        }
     }
 }
