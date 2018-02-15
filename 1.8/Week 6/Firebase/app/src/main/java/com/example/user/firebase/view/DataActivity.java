@@ -1,4 +1,4 @@
-package com.example.user.firebase;
+package com.example.user.firebase.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.user.firebase.utils.FirebaseDB;
+import com.example.user.firebase.utils.LoginAuthenticator;
+import com.example.user.firebase.R;
 import com.example.user.firebase.model.Movie;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class DataActivity extends AppCompatActivity implements LoginAuthenticator.onLoginInteraction{
+public class DataActivity extends AppCompatActivity implements LoginAuthenticator.onLoginInteraction {
 
     private LoginAuthenticator loginAuthenticator;
     private FirebaseDB firebaseDB;

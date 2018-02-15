@@ -1,4 +1,4 @@
-package com.example.user.firebase;
+package com.example.user.firebase.utils;
 
 import android.util.Log;
 
@@ -14,8 +14,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by singh on 2/13/18.

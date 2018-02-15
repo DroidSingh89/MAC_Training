@@ -1,4 +1,4 @@
-package com.example.user.firebase;
+package com.example.user.firebase.utils;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -101,7 +101,7 @@ public class LoginAuthenticator {
     }
 
 
-    interface onLoginInteraction {
+    public interface onLoginInteraction {
 
         void onUserCreation(FirebaseUser firebaseUser);
 

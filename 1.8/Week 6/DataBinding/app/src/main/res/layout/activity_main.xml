@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+
+    <data>
+
+        <variable
+            name="celeb"
+            type="com.example.user.databinding.model.Celebrity"/>
+
+        <variable
+            name="viewModel"
+            type="com.example.user.databinding.MainViewModel"/>
+
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.user.databinding.MainActivity">
+
+        <!--first name-->
+        <TextView
+            android:text="@{celeb.firstNameObs}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--last name-->
+        <TextView
+            android:text="@{celeb.lastNameObs}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--gender-->
+        <TextView
+            android:text="@{celeb.gender}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--industry name-->
+        <TextView
+            android:text="@{celeb.industry}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Send person to view model"
+            android:onClick="@{(view) -> viewModel.onCelebReceived(view, celeb)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:hint="First name"
+            android:addTextChangedListener="@{celeb.watcherFirstName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:hint="Last name"
+            android:addTextChangedListener="@{celeb.watcherLastName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+</layout>
