@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    personSrson object-->
+    <!--person object-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,5 +52,7 @@
         android:onClick="onHandlingClicks"
         android:text="GO to second"
         />
+
+
 
 </LinearLayout>

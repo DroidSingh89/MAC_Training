@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,4 +12,38 @@
         android:id="@+id/tvSecond"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <!--Check config changes-->
+    <EditText
+        android:id="@+id/etConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:onClick="onUpdateTextview"
+        android:text="Update textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--Implicit intent-->
+    <TextView
+        android:text="Implicit intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="Share Data"
+        android:onClick="onShareData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 </LinearLayout>
