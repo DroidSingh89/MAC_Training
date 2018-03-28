@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText etSharedPref;
     private TextView tvSharedPref;
     private EditText etFirstName;
-    private EditText etlastName;
-    private EditText etgender;
+    private EditText etLastName;
+    private EditText etGender;
     private TextView tvPersons;
 
 
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         etSharedPref = findViewById(R.id.etSharedPref);
         tvSharedPref = findViewById(R.id.tvSharedPref);
         etFirstName = findViewById(R.id.etFirstName);
-        etlastName = findViewById(R.id.etLastName);
-        etgender = findViewById(R.id.etGender);
+        etLastName = findViewById(R.id.etLastName);
+        etGender = findViewById(R.id.etGender);
         tvPersons = findViewById(R.id.tvAllPersons);
     }
 
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnSavePerson:
                 Person person = new Person(
                         etFirstName.getText().toString(),
-                        etlastName.getText().toString(),
-                        etgender.getText().toString()
+                        etLastName.getText().toString(),
+                        etGender.getText().toString()
                 );
                 long rowNumber = dataSource.savePerson(person);
 
