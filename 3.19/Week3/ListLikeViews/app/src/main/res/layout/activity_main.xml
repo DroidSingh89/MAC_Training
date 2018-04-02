@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:onClick="goToRecyclerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler activity"/>
+
+    <!--Simple list view-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simple list view"/>
+
+    <ListView
+        android:id="@+id/lvSimple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--Custom list view-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom list view"/>
+
+    <ListView
+        android:id="@+id/lvCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
