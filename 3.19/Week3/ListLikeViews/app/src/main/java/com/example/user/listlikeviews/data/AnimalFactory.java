@@ -33,4 +33,17 @@ public class AnimalFactory {
         return strings;
 
     }
+
+    public static List<Animal> getMoreAnimals() {
+        List<Animal> animalList = new ArrayList<>();
+
+        animalList.add(new Animal("Tiger", "400", "Cat"));
+        animalList.add(new Animal("Python", "40", "Snake"));
+        animalList.add(new Animal("Lion", "450", "Cat"));
+        animalList.add(new Animal("Chimpanzee", "100", "Monkey"));
+        animalList.add(new Animal("Parrot", "10", "Bird"));
+
+        return animalList;
+
+    }
 }

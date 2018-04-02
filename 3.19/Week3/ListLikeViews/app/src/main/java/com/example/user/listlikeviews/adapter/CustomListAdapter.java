@@ -48,9 +48,9 @@ public class CustomListAdapter extends ArrayAdapter<Animal> implements View.OnCl
 
         //Bind views
         TextView tvName = convertView.findViewById(R.id.tvName);
-        tvName.setOnClickListener(this);
         TextView tvWeight = convertView.findViewById(R.id.tvWeight);
         TextView tvType = convertView.findViewById(R.id.tvType);
+        tvName.setOnClickListener(this);
 
         //bind the views with data
         Animal animal = getItem(position);
