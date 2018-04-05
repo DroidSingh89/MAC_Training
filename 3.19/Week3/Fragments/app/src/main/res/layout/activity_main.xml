@@ -30,6 +30,22 @@
         android:onClick="onAddingFragments"
         android:text="Add Red"/>
 
+    <Button
+        android:id="@+id/btnAddYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAddingFragments"
+        android:text="Add Yellow"/>
+
+    <Button
+        android:id="@+id/btnRemoveAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAddingFragments"
+        android:text="RemoveAll"/>
+
+
+
     <!--Dynamic fragments-->
     <!--Placeholder 1-->
     <FrameLayout

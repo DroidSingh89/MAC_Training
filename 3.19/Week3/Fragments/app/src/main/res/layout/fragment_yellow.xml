@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/holo_orange_light"
+    tools:context=".fragments.YellowFragment">
+
+    <EditText
+        android:id="@+id/etFragYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+    <TextView
+        android:id="@+id/tvFragYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send data to activity"/>
+
+    <Button
+        android:id="@+id/btnUpdateYellowTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update textview"/>
+
+    <!--send data back to activity-->
+    <Button
+        android:id="@+id/btnFragYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send data to activity"/>
+
+</LinearLayout>

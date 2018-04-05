@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--handle normal service-->
+    <Button
+        android:id="@+id/btnStartNormalService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Start normal service"/>
+
+
+    <Button
+        android:id="@+id/btnStopNormalService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Stop normal service"/>
+
+    <!--handle intent service-->
+    <Button
+        android:id="@+id/btnStartIntentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Start Intent service"/>
+
+    <Button
+        android:id="@+id/btnBoundService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Bound service"/>
+
+    <Button
+        android:id="@+id/btnUnBindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="UnBind service"/>
+
+</LinearLayout>

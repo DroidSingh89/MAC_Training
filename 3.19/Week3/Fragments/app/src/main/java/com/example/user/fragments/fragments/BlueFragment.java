@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.user.fragments.R;
 
@@ -19,7 +20,6 @@ public class BlueFragment extends Fragment {
 
     public BlueFragment() {
         // Required empty public constructor
-        HashMap<>
     }
 
 
@@ -27,6 +27,8 @@ public class BlueFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_blue, container, false);
     }
 
