@@ -46,4 +46,11 @@
         android:onClick="handlingServices"
         android:text="UnBind service"/>
 
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Schedule service"/>
+
 </LinearLayout>

@@ -15,10 +15,25 @@ public class MyTask {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Log.d(tag, "run: "+ i);
+                    Log.d(tag, "run: " + i);
                 }
 
             }
         }).start();
+    }
+
+    public static void startSimple(String tag) {
+
+        for (int i = 0; i < 3; i++) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Log.d(tag, "run: " + i);
+
+        }
+
+
     }
 }

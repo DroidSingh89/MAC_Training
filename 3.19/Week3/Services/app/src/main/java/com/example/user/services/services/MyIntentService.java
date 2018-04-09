@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.util.MutableInt;
 
+import com.example.user.services.MyTask;
+
 
 public class MyIntentService extends IntentService {
 
@@ -28,6 +30,9 @@ public class MyIntentService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.d(TAG, "onHandleIntent: " + intent.getStringExtra("data"));
         Log.d(TAG, "onHandleIntent: Thread:" + Thread.currentThread().getName());
+
+        MyTask.startSimple(TAG);
+
 
     }
 
