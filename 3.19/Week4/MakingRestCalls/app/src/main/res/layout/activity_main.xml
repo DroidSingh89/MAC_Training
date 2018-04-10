@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <!--HttpUrlConnection-->
+    <Button
+        android:id="@+id/btnNative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Native"/>
+
+
+    <!--OkHttp Sync-->
+    <Button
+        android:id="@+id/btnOkHttpSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="OkHttp (Sync)"/>
+
+
+    <!--OkHttp Async-->
+    <Button
+        android:id="@+id/btnOkHttpAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="OkHttp (Async)"/>
+
+    <!--Retrofit Sync-->
+    <Button
+        android:id="@+id/btnRetrofitSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Retrofit (Sync)"/>
+
+
+    <!--Retrofit Async-->
+    <Button
+        android:id="@+id/btnRetrofitAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makingRestCalls"
+        android:text="Retrofit (Async)"/>
+
+    <TextView
+        android:id="@+id/tvResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Native"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        />
+
+</LinearLayout>
