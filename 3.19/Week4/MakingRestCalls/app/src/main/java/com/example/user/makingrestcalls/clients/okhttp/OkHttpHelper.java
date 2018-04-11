@@ -1,4 +1,4 @@
-package com.example.user.makingrestcalls.clients;
+package com.example.user.makingrestcalls.clients.okhttp;
 
 import com.example.user.makingrestcalls.utils.HandlerUtils;
 

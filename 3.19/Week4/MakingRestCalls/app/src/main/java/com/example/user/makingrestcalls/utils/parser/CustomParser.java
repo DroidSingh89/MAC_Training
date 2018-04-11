@@ -3,7 +3,6 @@ package com.example.user.makingrestcalls.utils.parser;
 import android.util.Log;
 
 import com.example.user.makingrestcalls.model.GithubProfile;
-import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
