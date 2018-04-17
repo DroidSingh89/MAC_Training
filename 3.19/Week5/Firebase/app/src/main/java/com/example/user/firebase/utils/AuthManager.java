@@ -53,10 +53,11 @@ public class AuthManager {
         if (object instanceof Activity) {
             this.activity = (Activity) object;
         }
-    } 
+    }
 
     public void register(String email, String password) {
         user = null;
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -76,7 +77,6 @@ public class AuthManager {
 
                         }
 
-                        // ...
                     }
                 });
 

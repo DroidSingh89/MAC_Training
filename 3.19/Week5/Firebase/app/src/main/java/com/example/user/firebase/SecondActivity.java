@@ -1,27 +1,59 @@
 package com.example.user.firebase;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.user.firebase.model.Movie;
 import com.example.user.firebase.utils.AuthManager;
+import com.example.user.firebase.utils.DBManager;
+import com.google.firebase.messaging.FirebaseMessaging;
 
-public class SecondActivity extends AppCompatActivity implements AuthManager.ISignOutInteraction{
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class SecondActivity extends AppCompatActivity implements AuthManager.ISignOutInteraction {
+
+    @BindView(R.id.etMovieName)
+    EditText etMovieName;
+    @BindView(R.id.etMovieGenre)
+    EditText etMovieGenre;
+    @BindView(R.id.lvMovies)
+    ListView lvMovies;
     private TextView tvEmail;
     private AuthManager authManager;
+    private EditText etData;
+    private DBManager dbManager;
+    private TextView tvData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        ButterKnife.bind(this);
+        bindViews();
+        injectManagers();
 
-        tvEmail = findViewById(R.id.tvEmail);
+        FirebaseMessaging firebaseMessaging = FirebaseMessaging.getInstance();
+        firebaseMessaging.subscribeToTopic("sometopic");
 
-        authManager = AuthManager.getDefault(this);
-//        authManager.attach(this);
+
         tvEmail.setText(authManager.getUser().getEmail());
+    }
+
+    private void injectManagers() {
+        authManager = AuthManager.getDefault(this);
+        dbManager = new DBManager(tvData);
+
+    }
+
+    private void bindViews() {
+        tvEmail = findViewById(R.id.tvEmail);
+        etData = findViewById(R.id.etData);
+        tvData = findViewById(R.id.tvData);
     }
 
     public void onSignOut(View view) {
@@ -31,5 +63,26 @@ public class SecondActivity extends AppCompatActivity implements AuthManager.ISi
     @Override
     public void onSignOut(boolean isSignedOut) {
         finish();
+    }
+
+    public void onSaveToFB(View view) {
+
+        dbManager.save(etData.getText().toString());
+    }
+
+    public void onRetrieveFromFB(View view) {
+
+        dbManager.retrieve();
+    }
+
+    public void onSaveMovie(View view) {
+
+        dbManager.saveMovie(new Movie(etMovieName.getText().toString()
+                , etMovieGenre.getText().toString()));
+
+    }
+
+    public void onMoviesReceived(View view) {
+        dbManager.retrieveMovies();
     }
 }

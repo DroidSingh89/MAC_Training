@@ -1,16 +1,21 @@
 package com.example.user.firebase;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.user.firebase.utils.AuthManager;
+import com.example.user.firebase.utils.IntentUtils;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements AuthManager.ILoginInteraction{
+public class MainActivity extends AppCompatActivity implements AuthManager.ILoginInteraction {
+
+    private static final String TAG = MainActivity.class.getSimpleName() + "TAG";
 
     private EditText etEmail;
     private EditText etPassword;
@@ -25,22 +30,43 @@ public class MainActivity extends AppCompatActivity implements AuthManager.ILogi
         bindViews();
         authManager = AuthManager.getDefault(this);
 
-        }
+
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser user = authManager.getUser();
         if (user != null) {
-            startSecondActivity();
+
+            Log.d(TAG, "onStart: ");
+            Intent intent = getIntent();
+            String postId = intent.getStringExtra("postId");
+            if (postId != null) {
+                Log.d(TAG, "onStart: Post not null");
+
+
+                Intent postIntent = new IntentUtils.Builder(this)
+                        .addComponent(PostActivity.class)
+                        .putExtra("postID", postId)
+                        .build();
+
+                startActivity(postIntent);
+
+
+            } else startSecondActivity();
+
         }
 
 
     }
 
     private void startSecondActivity() {
-        Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-        startActivity(intent);
+        
+        Intent secondIntent = new IntentUtils.Builder(this)
+                .addComponent(SecondActivity.class)
+                .build();
+        startActivity(secondIntent);
 
     }
 
