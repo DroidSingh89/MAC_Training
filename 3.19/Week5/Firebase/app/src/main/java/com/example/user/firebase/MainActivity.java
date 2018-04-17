@@ -46,15 +46,13 @@ public class MainActivity extends AppCompatActivity implements AuthManager.ILogi
                 Log.d(TAG, "onStart: Post not null");
 
 
-                Intent postIntent = new IntentUtils.Builder(this)
+                IntentUtils.create(this)
                         .addComponent(PostActivity.class)
                         .putExtra("postID", postId)
-                        .build();
-
-                startActivity(postIntent);
-
+                        .startActivity();
 
             } else startSecondActivity();
+
 
         }
 
@@ -62,11 +60,10 @@ public class MainActivity extends AppCompatActivity implements AuthManager.ILogi
     }
 
     private void startSecondActivity() {
-        
-        Intent secondIntent = new IntentUtils.Builder(this)
+
+        IntentUtils.create(this)
                 .addComponent(SecondActivity.class)
-                .build();
-        startActivity(secondIntent);
+                .startActivity();
 
     }
 

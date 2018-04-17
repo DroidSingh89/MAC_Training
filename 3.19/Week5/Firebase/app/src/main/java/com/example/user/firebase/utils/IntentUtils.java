@@ -7,6 +7,9 @@ import android.util.Log;
 
 public class IntentUtils {
 
+    public static Builder create(Context context){
+        return new Builder(context);
+    }
 
     public static class Builder {
 
@@ -16,6 +19,7 @@ public class IntentUtils {
         public Builder(Context context) {
             this.intent = new Intent();
             this.context = context;
+
         }
 
         public Builder addComponent(Class component) {
@@ -24,6 +28,7 @@ public class IntentUtils {
             return this;
         }
 
+        //add more putExtra constructors for other data types of use object class
         public Builder putExtra(String key, String data) {
 
             this.intent.putExtra(key, data);
@@ -34,6 +39,17 @@ public class IntentUtils {
         public Intent build() {
             return this.intent;
         }
+
+        public void startActivity(){
+            this.context.startActivity(this.intent);
+
+        }
+
+        public void startService(){
+            this.context.startService(this.intent);
+
+        }
+
 
 
     }

@@ -63,7 +63,7 @@ public class DBManager {
         profileRef.setValue(profileMap);
 
         //saving messages
-        msgRef.push().setValue(data);
+        msgRef.setValue(data);
     }
 
     public void saveMovie(Movie movie) {
