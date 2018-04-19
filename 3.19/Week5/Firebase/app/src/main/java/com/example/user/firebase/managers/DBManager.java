@@ -35,8 +35,8 @@ public class DBManager {
     TextView textView;
     private final DatabaseReference movieRef;
 
-    public DBManager(TextView textView) {
-        this.textView = textView;
+    public DBManager() {
+//        this.textView = textView;
         database = FirebaseDatabase.getInstance();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -82,7 +82,8 @@ public class DBManager {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
-                textView.setText(value);
+
+//                textView.setText(value);
             }
 
             @Override

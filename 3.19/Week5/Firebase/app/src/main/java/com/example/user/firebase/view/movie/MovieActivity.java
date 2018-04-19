@@ -48,7 +48,7 @@ public class MovieActivity extends AppCompatActivity implements AuthManager.ISig
 
     private void injectManagers() {
         authManager = AuthManager.getDefault(this);
-        dbManager = new DBManager(tvData);
+        dbManager = new DBManager();
 
     }
 
