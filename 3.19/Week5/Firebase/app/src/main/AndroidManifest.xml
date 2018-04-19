@@ -9,29 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity">
+        <activity android:name=".view.movie.MovieActivity">
         </activity>
 
-        <service android:name=".utils.notification.FBInstanceIdService">
+        <activity android:name=".view.post.PostActivity">
+        </activity>
+
+        <service android:name=".service.notification.FBInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
-        <service android:name=".utils.notification.FBMessagingService">
+        <service android:name=".service.notification.FBMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-
-        <activity android:name=".PostActivity">
-        </activity>
     </application>
 
 </manifest>
