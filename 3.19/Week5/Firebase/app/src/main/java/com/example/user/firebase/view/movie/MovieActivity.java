@@ -8,10 +8,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
+import com.example.user.firebase.managers.AnalyticsManager;
 import com.example.user.firebase.model.Movie;
 import com.example.user.firebase.managers.AuthManager;
 import com.example.user.firebase.managers.DBManager;
 import com.example.user.firebase.R;
+import com.example.user.firebase.model.events.HelloEvent;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import butterknife.BindView;
@@ -30,6 +32,7 @@ public class MovieActivity extends AppCompatActivity implements AuthManager.ISig
     private EditText etData;
     private DBManager dbManager;
     private TextView tvData;
+    private AnalyticsManager analyticsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class MovieActivity extends AppCompatActivity implements AuthManager.ISig
     private void injectManagers() {
         authManager = AuthManager.getDefault(this);
         dbManager = new DBManager();
+        analyticsManager = new AnalyticsManager(this);
 
     }
 
@@ -68,8 +72,8 @@ public class MovieActivity extends AppCompatActivity implements AuthManager.ISig
     }
 
     public void onSaveToFB(View view) {
-
         dbManager.save(etData.getText().toString());
+
     }
 
     public void onRetrieveFromFB(View view) {
@@ -79,8 +83,11 @@ public class MovieActivity extends AppCompatActivity implements AuthManager.ISig
 
     public void onSaveMovie(View view) {
 
-        dbManager.saveMovie(new Movie(etMovieName.getText().toString()
-                , etMovieGenre.getText().toString()));
+        Movie movie = new Movie(etMovieName.getText().toString()
+                , etMovieGenre.getText().toString());
+        dbManager.saveMovie(movie);
+
+        analyticsManager.logEvent(new HelloEvent("movie saved:" + movie.getName(), "3234"));
 
     }
 
