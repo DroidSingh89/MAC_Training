@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ActivityLifecycleAndIntent</string>
+    <string name="send_person_to_second">Send person to second</string>
+    <string name="hint_person_name">Name</string>
+    <string name="hint_person_age">Age</string>
+    <string name="send_personp_to_second">Send PersonP to Second</string>
+</resources>
