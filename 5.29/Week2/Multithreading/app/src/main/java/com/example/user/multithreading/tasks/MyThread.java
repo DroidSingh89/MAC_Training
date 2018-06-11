@@ -5,6 +5,10 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.user.multithreading.model.MyEvent;
+
+import org.greenrobot.eventbus.EventBus;
+
 public class MyThread extends Thread {
 
     TextView tvResult;
@@ -17,6 +21,10 @@ public class MyThread extends Thread {
     @Override
     public void run() {
         super.run();
+
+//        using eventbus to post
+        MyEvent myEvent = new MyEvent("Starting task");
+        EventBus.getDefault().post(myEvent);
 
         handler.post(new Runnable() {
             @Override
@@ -39,7 +47,9 @@ public class MyThread extends Thread {
             }
         });
 
-
+//        using eventbus to posts
+        myEvent.setData("Task completed");
+        EventBus.getDefault().post(myEvent);
 
     }
 
