@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnStartNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Start Normal Service"/>
+
+    <Button
+        android:id="@+id/btnStopNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Stop Normal Service"/>
+
+    <Button
+        android:id="@+id/btnStartIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Start Intent Service"/>
+
+    <Button
+        android:id="@+id/btnBoundService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Bound to Service"/>
+
+    <Button
+        android:id="@+id/btnGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Get data from Bound"/>
+
+    <Button
+        android:id="@+id/btnUnboundService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Unbound from Service"/>
+
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handlingServices"
+        android:text="Schedule Service"/>
+
+
+</LinearLayout>
