@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--Linear Layout Vertical-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="First TextView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Second TextView"/>
+
+    </LinearLayout>
+    <!--Linear Layout Horizontal-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter something: "/>
+
+        <EditText
+            android:id="@+id/etSomething"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Something"/>
+
+    </LinearLayout>
+
+    <!--Relative Layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Button"/>
+        <Button
+            android:onClick="onSecondClicked"
+            android:id="@+id/btnSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnFirst"
+            android:layout_toRightOf="@id/btnFirst"
+            android:text="Second Button"/>
+
+    </RelativeLayout>
+
+    <!--Frame Layout-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ANDROID"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"/>
+
+
+    </FrameLayout>
+
+</LinearLayout>

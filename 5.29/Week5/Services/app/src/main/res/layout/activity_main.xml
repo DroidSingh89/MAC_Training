@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/btnStartNormal"
         android:layout_width="match_parent"

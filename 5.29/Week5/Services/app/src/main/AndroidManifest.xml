@@ -26,6 +26,22 @@
             android:name=".services.MyIntentService"
             android:exported="false">
         </service>
+        <service
+            android:name=".services.MyBoundService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".services.MyBound2Service"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".services.MyJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+        </service>
     </application>
 
 </manifest>
