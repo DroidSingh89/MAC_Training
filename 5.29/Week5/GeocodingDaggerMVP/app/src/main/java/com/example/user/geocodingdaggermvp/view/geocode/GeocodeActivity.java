@@ -15,14 +15,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.geocodingdaggermvp.R;
+import com.example.user.geocodingdaggermvp.di.component.DaggerGeocodeComponent;
 
-public class GeocodeActivity extends AppCompatActivity implements GeocodeContract.View{
+
+import javax.inject.Inject;
+
+public class GeocodeActivity extends AppCompatActivity implements GeocodeContract.View {
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 10;
     private static final String TAG = GeocodeActivity.class.getSimpleName();
-    private GeocodePresenter presenter;
     private TextView tvLocation;
     private TextView tvAddress;
+
+    //    Step 4: inject presenter
+    @Inject
+    GeocodePresenter presenter;
+
 
 
     @Override
@@ -33,8 +41,13 @@ public class GeocodeActivity extends AppCompatActivity implements GeocodeContrac
         tvLocation = findViewById(R.id.tvLocation);
         tvAddress = findViewById(R.id.tvAddress);
 
+//        Step 3: initialize dagger component
+        DaggerGeocodeComponent
+                .create()
+                .inject(this);
 
-        presenter = new GeocodePresenter();
+
+//        presenter = new GeocodePresenter();
         presenter.attachView(this);
 
         // Here, thisActivity is the current activity
@@ -55,7 +68,7 @@ public class GeocodeActivity extends AppCompatActivity implements GeocodeContrac
                 showExplaination();
             } else {
                 // No explanation needed; request the permission
-              requestPermission();
+                requestPermission();
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
                 // app-defined int constant. The callback method gets the
                 // result of the request.
@@ -128,7 +141,7 @@ public class GeocodeActivity extends AppCompatActivity implements GeocodeContrac
     @Override
     public void onLocationReceived(Location location) {
 
-        Log.d(TAG, "onLocationReceived: "+ location.toString());
+        Log.d(TAG, "onLocationReceived: " + location.toString());
         Toast.makeText(getApplicationContext(), location.toString(), Toast.LENGTH_SHORT).show();
 
         tvLocation.setText(location.toString());

@@ -13,7 +13,8 @@ public class LocationManager {
     FusedLocationProviderClient fusedLocationProviderClient;
     LocationListener locationListener;
 
-    public LocationManager(Object component, Object listener) {
+
+    public void initialize(Object component, Object listener) {
         this.fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient((Activity) component);
         this.locationListener = (LocationListener) listener;
     }

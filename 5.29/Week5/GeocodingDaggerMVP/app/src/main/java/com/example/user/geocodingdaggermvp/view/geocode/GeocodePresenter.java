@@ -7,6 +7,8 @@ import com.example.user.geocodingdaggermvp.manager.LocationManager;
 import com.example.user.geocodingdaggermvp.model.datasource.RemoteDataSource;
 import com.example.user.geocodingdaggermvp.model.response.GeocodeResponse;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -17,6 +19,11 @@ public class GeocodePresenter implements GeocodeContract.Presenter, LocationMana
     GeocodeContract.View view;
     LocationManager locationManager;
     Location location;
+
+    @Inject
+    public GeocodePresenter(LocationManager locationManager) {
+        this.locationManager = locationManager;
+    }
 
 
     @Override
@@ -71,8 +78,7 @@ public class GeocodePresenter implements GeocodeContract.Presenter, LocationMana
     @Override
     public void attachView(GeocodeContract.View view) {
         this.view = view;
-        locationManager = new LocationManager(view, this);
-
+        locationManager.initialize(view, this);
 
     }
 
