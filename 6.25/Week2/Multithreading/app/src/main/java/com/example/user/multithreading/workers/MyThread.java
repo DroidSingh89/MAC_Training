@@ -4,7 +4,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.TextView;
 
+import com.example.user.multithreading.model.event.HelloEvent;
 import com.example.user.multithreading.utils.TaskCreator;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class MyThread extends Thread {
 
@@ -19,6 +22,12 @@ public class MyThread extends Thread {
     @Override
     public void run() {
         super.run();
+
+        HelloEvent helloEvent = new HelloEvent("Before: This is the data");
+
+//        EventBus post
+        EventBus.getDefault().post(helloEvent);
+
 
 //        before the task is started
         handler.post(new Runnable() {
@@ -45,5 +54,8 @@ public class MyThread extends Thread {
         });
 
 
+//        EventBus data after
+        helloEvent.setData("After: This is new data");
+        EventBus.getDefault().post(helloEvent);
     }
 }
