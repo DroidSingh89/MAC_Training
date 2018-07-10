@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.user.storage.model.Person;
 import com.example.user.storage.model.data.LocalDataSource;
+import com.example.user.storage.model.data.room.Book;
+import com.example.user.storage.model.data.room.RoomHelper;
 
 import java.util.List;
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText etPersonName;
     private EditText etPersonAge;
     private EditText etPersonGender;
+    private EditText etBookISBN;
+    private EditText etBookAuthor;
+    private EditText etBookName;
+    private RoomHelper roomHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bindViews();
 
+//        using sqlite
         localDataSource = new LocalDataSource(this);
+
+//        using room ORM
+        roomHelper = new RoomHelper(this);
+
     }
 
     private void bindViews() {
@@ -42,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
         etPersonName = findViewById(R.id.etPersonName);
         etPersonAge = findViewById(R.id.etPersonAge);
         etPersonGender = findViewById(R.id.etPersonGender);
+
+//        for room database
+        etBookISBN = findViewById(R.id.etBookISBN);
+        etBookAuthor = findViewById(R.id.etBookAuthor);
+        etBookName = findViewById(R.id.etBookName);
     }
 
     public void handleSharedPreferences(View view) {
@@ -107,5 +123,17 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
         }
+    }
+
+    public void onSaveBook(View view) {
+        Book book = new Book(etBookISBN.getText().toString(),
+                etBookName.getText().toString(),
+                etBookAuthor.getText().toString());
+
+        roomHelper.saveBook(book);
+    }
+
+    public void onGetAllBooks(View view) {
+        roomHelper.getBooks();
     }
 }

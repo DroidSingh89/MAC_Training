@@ -67,4 +67,32 @@
         android:layout_height="wrap_content"
         android:onClick="handlingDatabase"
         android:text="Get persons"/>
+
+    <!--UI to test Room database-->
+    <EditText
+        android:id="@+id/etBookISBN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etBookAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSaveBook"
+        android:text="Save Book"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onGetAllBooks"
+        android:text="Get All Book"/>
 </LinearLayout>
