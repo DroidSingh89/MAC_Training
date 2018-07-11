@@ -23,13 +23,22 @@ public class RVBookAdapter extends RecyclerView.Adapter<RVBookAdapter.ViewHolder
         this.books = books;
     }
 
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder: ");
 
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.book_list_item, parent, false);
+        View view;
+        int currentLayout;
+
+
+        if (viewType == 1) {
+            currentLayout = R.layout.book_list_item_something;
+        } else currentLayout = R.layout.book_list_item;
+
+        view = LayoutInflater.from(parent.getContext())
+                .inflate(currentLayout, parent, false);
 
         return new ViewHolder(view);
     }
@@ -37,7 +46,7 @@ public class RVBookAdapter extends RecyclerView.Adapter<RVBookAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Log.d(TAG, "onBindViewHolder: "+ holder.toString());
+        Log.d(TAG, "onBindViewHolder: " + holder.toString());
 
         Book book = books.get(position);
 
@@ -51,6 +60,16 @@ public class RVBookAdapter extends RecyclerView.Adapter<RVBookAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return books.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+
+        Book book = books.get(position);
+
+        if (book.getAuthor().equals("Something"))
+            return 1;
+        else return 2;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,4 +87,6 @@ public class RVBookAdapter extends RecyclerView.Adapter<RVBookAdapter.ViewHolder
 
         }
     }
+
+
 }

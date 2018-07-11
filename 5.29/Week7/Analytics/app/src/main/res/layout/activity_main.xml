@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/btnRun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRunning"
+        android:text="Run"/>
+
+    <Button
+        android:id="@+id/btnJump"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onJump"
+        android:text="Jump"/>
+
+
+    <Button
+        android:id="@+id/btSwim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSwimming"
+        android:text="Swim"/>
+
+
+    <Button
+        android:id="@+id/btnSkyDive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSkyDiving"
+        android:text="SkyDive"/>
+
+
+    <!--time events-->
+    <Button
+        android:id="@+id/btnStartTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartTimedEvent"
+        android:text="Start Timed Event"/>
+
+    <Button
+        android:id="@+id/btnGetElapsedTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onElapsedTime"
+        android:text="Get Elapsed Time"/>
+
+    <Button
+        android:id="@+id/btnTrackTimedEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onTrackTimedEvent"
+        android:text="Track Timed Event"/>
+
+</LinearLayout>

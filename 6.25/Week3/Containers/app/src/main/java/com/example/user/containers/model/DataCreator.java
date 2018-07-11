@@ -35,7 +35,7 @@ public class DataCreator {
         bookList.add(new Book("89-234", "John Something Chronicles", "John Doe"));
         bookList.add(new Book("009-332", "Something Chronicles", "John Doe"));
         bookList.add(new Book("AKF-234", "John Doe Chronicles", "John Doe"));
-        bookList.add(new Book("IH-32", "Some Doe Chronicles", "John Doe"));
+        bookList.add(new Book("IH-32", "Some Doe Chronicles", "Something"));
         bookList.add(new Book("89-234", "John Something Chronicles", "John Doe"));
         bookList.add(new Book("009-332", "Something Chronicles", "John Doe"));
         bookList.add(new Book("AKF-234", "John Doe Chronicles", "John Doe"));
