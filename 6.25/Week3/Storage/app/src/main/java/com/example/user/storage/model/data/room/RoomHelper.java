@@ -27,7 +27,6 @@ public class RoomHelper {
         new Thread(new Runnable() {
             @Override
             public void run() {
-
                 bookDao.saveBook(book);
 
             }

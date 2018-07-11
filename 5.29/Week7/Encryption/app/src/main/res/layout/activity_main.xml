@@ -25,12 +25,26 @@
         android:onClick="onGetPreference"
         android:text="Get data"/>
 
+
+
+    <!--Encryption-->
+    <Button
+        android:onClick="onEncrypt"
+        android:text="Encrypt Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="onDecrypt"
+        android:text="Decrypt Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView
         android:id="@+id/tvMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
         android:textSize="25dp"/>
-
 
 </LinearLayout>
