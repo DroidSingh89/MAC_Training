@@ -78,7 +78,7 @@ public class LocalDataSource {
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(new Function<List<Person>, List<Person>>() {
                     @Override
-                    public List<Person> apply(List<Person> personList) throws Exception {
+                    public List<Person> apply(List<Person> personList){
                         for (Person person : personList) {
                             person.setAge(person.getAge() + "0");
 

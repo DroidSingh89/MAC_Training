@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <!--Started services-->
+
+    <!--Services class-->
+    <Button
+        android:id="@+id/btnStartService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartedServices"
+        android:text="Start normal service"/>
+
+    <Button
+        android:id="@+id/btnStopService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartedServices"
+        android:text="Stop normal service"/>
+
+    <!--Intent service class-->
+    <Button
+        android:id="@+id/btnStartIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartedServices"
+        android:text="Start intent service"/>
+
+    <!--Bound services-->
+
+    <!--Bound to a service-->
+    <Button
+        android:id="@+id/btnBoundService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundServices"
+        android:text="Bound to service"/>
+
+    <!--Get data from service-->
+    <Button
+        android:id="@+id/btnGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundServices"
+        android:text="Get data from service"/>
+
+    <!--Unbind from service-->
+    <Button
+        android:id="@+id/btnUnBind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundServices"
+        android:text="Unbind from service"/>
+
+    <!--Schedule a job-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onScheduleJob"
+        android:text="Schedule job"/>
+
+
+</LinearLayout>
