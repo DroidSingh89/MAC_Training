@@ -1,6 +1,7 @@
 package com.example.user.services;
 
 import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -126,8 +127,12 @@ public class MainActivity extends AppCompatActivity {
 
         ComponentName componentName = new ComponentName(getApplicationContext(), MyJobService.class);
         JobInfo.Builder builder = new JobInfo.Builder(JOB_ID_NORMAL_SERVICE, componentName)
-                .setMinimumLatency(1000)
-                .setOverrideDeadline(2000);
+                .setRequiresDeviceIdle(true)
+                .setOverrideDeadline(5000);
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+
+        jobScheduler.schedule(builder.build());
 
 
 

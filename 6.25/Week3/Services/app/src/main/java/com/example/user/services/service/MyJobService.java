@@ -29,6 +29,8 @@ public class MyJobService extends JobService {
         Intent intent = new Intent(getApplicationContext(), MyService.class);
         startService(intent);
 
+        stopSelf();
+
         return false;
     }
 
