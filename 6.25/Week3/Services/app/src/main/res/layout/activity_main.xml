@@ -67,5 +67,13 @@
         android:onClick="onScheduleJob"
         android:text="Schedule job"/>
 
+    <!--Start a service in its own process-->
+    <Button
+        android:text="Start service on new process"
+        android:onClick="onServiceOnNewProcess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 
 </LinearLayout>

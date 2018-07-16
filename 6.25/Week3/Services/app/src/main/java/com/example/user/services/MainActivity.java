@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.user.services.service.MyBoundService;
 import com.example.user.services.service.MyIntentService;
 import com.example.user.services.service.MyJobService;
+import com.example.user.services.service.MyNewProcessService;
 import com.example.user.services.service.MyService;
 
 import java.util.ServiceConfigurationError;
@@ -137,5 +138,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void onServiceOnNewProcess(View view) {
+        Intent intent = new Intent(getApplicationContext(), MyNewProcessService.class);
+        startService(intent);
     }
 }

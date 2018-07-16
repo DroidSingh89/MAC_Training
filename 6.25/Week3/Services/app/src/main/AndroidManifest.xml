@@ -37,6 +37,12 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
+        <service
+            android:name=".service.MyNewProcessService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":externalProcess">
+        </service>
     </application>
 
 </manifest>
