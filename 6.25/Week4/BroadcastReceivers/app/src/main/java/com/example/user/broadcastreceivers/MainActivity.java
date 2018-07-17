@@ -3,6 +3,7 @@ package com.example.user.broadcastreceivers;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         intentFilter.addAction(Constants.Action.MY_ACTION);
-        registerReceiver(myReceiver, intentFilter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(myReceiver, intentFilter);
 
 
     }
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        unregisterReceiver(myReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(myReceiver);
 
 
     }
@@ -52,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Constants.Action.MY_ACTION);
         intent.putExtra(Constants.Key.MY_KEY, data);
         sendBroadcast(intent);
+
+    }
+
+    public void SendBroadcastOut(View view) {
+
+        String data = editText.getText().toString();
+        Intent intent = new Intent(Constants.Action.ACTION_OUTSIDE);
+        intent.putExtra(Constants.Key.MY_KEY, data);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 
     }
 }
