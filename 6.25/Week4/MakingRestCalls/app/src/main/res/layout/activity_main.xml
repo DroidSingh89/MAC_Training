@@ -1,27 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <!--using native call-->
     <Button
-        android:onClick="onNativeCall"
-        android:text="Native HTTP"
         android:id="@+id/btnNativeCall"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:onClick="onNativeCall"
+        android:text="Native HTTP"/>
 
+    <!--okhttp-->
+    <Button
+        android:id="@+id/btnOkhttpSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onOkhttp"
+        android:text="okhttp(Sync)"/>
+
+    <Button
+        android:id="@+id/btnOkhttpAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onOkhttp"
+        android:text="okhttp(Async)"/>
+
+
+    <!--Retrofit-->
+    <Button
+        android:id="@+id/btnRetroSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRetrofit"
+        android:text="Retrofit (Sync)"/>
+
+    <Button
+        android:id="@+id/btnRetroAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRetrofit"
+        android:text="Retrofit (Async)"/>
+
+
+    <Button
+        android:id="@+id/btnRetroRxJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRetrofit"
+        android:text="Retrofit (RxJava)"/>
+
+    <Button
+        android:id="@+id/btnRetroRxCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRetrofit"
+        android:text="Retrofit (RxCustom)"/>
+
+    <Button
+        android:id="@+id/btnRetroRxCustomUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRetrofit"
+        android:text="Retrofit (RxCustomUserName)"/>
+
+
+    <!--result-->
     <TextView
-        android:textSize="20sp"
-        android:textColor="@color/colorAccent"
         android:id="@+id/tvResults"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"/>
+
 
 
 </LinearLayout>
