@@ -27,6 +27,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public class RetrofitHelper {
@@ -225,6 +226,11 @@ public class RetrofitHelper {
 
         @GET("api")
         Call<APIResponse> getUsers(@Query("results") String results);
+
+
+//        dynamic URL
+        @GET("{pathHolder}")
+        Call<APIResponse> getUsersDynamic(@Path("pathHolder") String path);
 
 
         @GET("api")
