@@ -5,11 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.user.networklib.MyZackClass;
+
 public class MainActivity extends AppCompatActivity implements PermissionManager.Callback{
 
     private static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
 
     private PermissionManager permissionManager;
+    private ContactManager contactManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,9 @@ public class MainActivity extends AppCompatActivity implements PermissionManager
 
         permissionManager = new PermissionManager(this);
         Log.d(TAG, "onCreate: Check permission");
+        contactManager = new ContactManager(this);
         permissionManager.checkPermission();
+
 
     }
 
@@ -40,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements PermissionManager
                 if (isGranted) {
 
                     Log.d(TAG, "onPermissionResults: Granted");
+                    for (Contact contact : contactManager.getContacts()) {
+                        Log.d(TAG, "onPermissionResults: Contact: " + contact.toString());
+                    }
                 } else {
                     Log.d(TAG, "onPermissionResults: Denied");
 
