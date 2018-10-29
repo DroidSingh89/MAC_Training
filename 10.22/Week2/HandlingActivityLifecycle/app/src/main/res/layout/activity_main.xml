@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.MainActivity">
+
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"/>
+
+    <EditText
+        android:id="@+id/etMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onUpdateTextView"
+        android:text="Change TextView"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartSecond"
+        android:text="Start second activity"/>
+
+    <!--handling launch modes-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartMain"
+        android:text="Call Main again"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter person detail"
+        android:textColor="@color/colorAccent"/>
+
+    <!--person name-->
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <!--person age-->
+    <EditText
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--person gender-->
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--button for serializable-->
+    <Button
+        android:id="@+id/btnPersonSerializable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSendingPerson"
+        android:text="Send person to second(Serializable)"/>
+
+    <!--button for parcelable-->
+    <Button
+        android:id="@+id/btnPersonParcelable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSendingPerson"
+        android:text="Send person to second(Parcelable)"/>
+
+</LinearLayout>
