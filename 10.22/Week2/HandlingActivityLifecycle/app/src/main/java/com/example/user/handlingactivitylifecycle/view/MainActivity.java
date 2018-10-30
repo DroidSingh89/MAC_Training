@@ -1,6 +1,7 @@
 package com.example.user.handlingactivitylifecycle.view;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -32,6 +33,28 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: ");
 
         bindViews();
+
+
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.d(TAG, "onConfigurationChanged: ");
+
+        switch (newConfig.orientation) {
+            case Configuration.ORIENTATION_PORTRAIT:
+                Log.d(TAG, "onConfigurationChanged: Portrait");
+                break;
+
+            case Configuration.ORIENTATION_LANDSCAPE:
+
+                Log.d(TAG, "onConfigurationChanged: Landscape");
+                break;
+
+
+        }
+
 
 
     }

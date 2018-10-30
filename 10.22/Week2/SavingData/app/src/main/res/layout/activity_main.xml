@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--Shared preferences-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shared preferences"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/etSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSaveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSharedPreferences"
+        android:text="Save data"/>
+
+    <Button
+        android:id="@+id/btnGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSharedPreferences"
+        android:text="Get data"/>
+
+    <TextView
+        android:id="@+id/tvSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Initial string"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"/>
+
+    <!--Database-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SQLite Database"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+
+    <EditText
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age"/>
+
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gender"/>
+
+    <Button
+        android:id="@+id/btnSavePerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSQLiteDatabase"
+        android:text="Save person"/>
+
+    <Button
+        android:id="@+id/btnGetAllPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSQLiteDatabase"
+        android:text="Get All Person"/>
+
+    <ListView
+        android:id="@+id/lvPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
