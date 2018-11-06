@@ -47,7 +47,7 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate: ");
+        Log.d(TAG, "onCreate: " + this.toString());
 
 
         if (getArguments() != null) {
@@ -99,11 +99,31 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: " + this.toString());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: " + this.toString());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: " + this.toString());
+    }
+
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
+
 
     @Override
     public void onClick(View v) {

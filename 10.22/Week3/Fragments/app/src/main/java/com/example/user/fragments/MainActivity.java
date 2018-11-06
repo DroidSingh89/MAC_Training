@@ -1,18 +1,22 @@
 package com.example.user.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.fragments.fragments.RedFragment;
 import com.example.user.fragments.fragments.YellowFragment;
 
-public class MainActivity extends AppCompatActivity implements YellowFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements YellowFragment.OnFragmentInteractionListener, RedFragment.OnFragmentInteractionListener {
 
     private static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
     private TextView tvMain;
+    private FragmentManager fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
         Log.d(TAG, "onCreate: ");
 
         tvMain = findViewById(R.id.tvMain);
+        fm = getSupportFragmentManager();
 
     }
 
@@ -58,18 +63,19 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
 
 
 //        YellowFragment yellowFragment = (YellowFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentHolder1);
-
+//
+//        if(yellowFragment==null) yellowFragment = YellowFragment.newInstance("Sasdf", "asdf");
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragmentHolder1,
-                        YellowFragment.newInstance("af", "ASdf")
-                        , YellowFragment.TAG)
+                .add(R.id.fragmentHolder1,
+                        YellowFragment.newInstance("wer", "Wer"), YellowFragment.TAG)
                 .addToBackStack(YellowFragment.TAG)
                 .commit();
 
 
     }
+
 
     @Override
     public void onFragmentInteraction(String data) {
@@ -80,5 +86,66 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onRemovingYellow(View view) {
+
+
+        YellowFragment yellowFragment = (YellowFragment) getSupportFragmentManager().findFragmentByTag(YellowFragment.TAG);
+
+        fm.beginTransaction()
+                .remove(yellowFragment)
+                .commit();
+
+
+
+    }
+
+    public void onRemovingRed(View view) {
+
+        RedFragment redFragment = (RedFragment) fm.findFragmentById(R.id.fragmentHolder1);
+
+        fm.beginTransaction()
+                .remove(redFragment)
+                .commit();
+
+    }
+
+    public void onAddingRed(View view) {
+
+        fm.beginTransaction()
+                .add(R.id.fragmentHolder1,
+                        RedFragment.newInstance("wer", "Wer"), RedFragment.TAG)
+                .addToBackStack(RedFragment.TAG)
+                .commit();
+
+
+    }
+
+    public void onRemovingFragment(View view) {
+
+
+//        remove all fragments till the last yellow fragment, from the back stack as well
+//        boolean result = fm.popBackStackImmediate(YellowFragment.TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+//        remove all fragments till the last yellow fragment, from the back stack as well
+//        does it inside the call, does not have a return type
+//        fm.popBackStack(YellowFragment.TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+
+//        removes the top fragment, async, does not return anything
+//        fm.popBackStack();
+
+//        remove the top fragment from back stack, inside the call and return boolean
+//        fm.popBackStackImmediate();
+
+
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+
     }
 }

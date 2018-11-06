@@ -21,16 +21,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <!--Add yellow-->
     <Button
-        android:onClick="onAddingYellow"
         android:id="@+id/btnAddYellow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onAddingYellow"
         android:text="Add Yellow Fragment"/>
+
+    <!--Remove yellow-->
+    <Button
+        android:id="@+id/btnRemoveYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRemovingYellow"
+        android:text="Remove Yellow Fragment"/>
+
 
     <!--placeholder for fragment one-->
     <FrameLayout
         android:id="@+id/fragmentHolder1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <!--Add Red-->
+    <Button
+        android:id="@+id/btnAddRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAddingRed"
+        android:text="Add Red Fragment"/>
+
+    <!--Remove Red-->
+    <Button
+        android:id="@+id/btnRemoveRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRemovingRed"
+        android:text="Remove Red Fragment"/>
+
+    <Button
+        android:onClick="onRemovingFragment"
+        android:text="Remove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--placeholder for fragment one-->
+    <FrameLayout
+        android:id="@+id/fragmentHolder2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
