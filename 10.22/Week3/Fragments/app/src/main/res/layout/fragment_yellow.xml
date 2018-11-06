@@ -23,4 +23,16 @@
         android:layout_height="wrap_content"
         android:text="Send data to activity"/>
 
+    <!--UI to send textValue to the red fragment-->
+    <EditText
+        android:id="@+id/etTextValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSendToRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send text to red"/>
+
 </LinearLayout>

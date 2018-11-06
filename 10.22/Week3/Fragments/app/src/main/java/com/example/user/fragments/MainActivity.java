@@ -60,22 +60,12 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
     }
 
     public void onAddingYellow(View view) {
-
-
-//        YellowFragment yellowFragment = (YellowFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentHolder1);
-//
-//        if(yellowFragment==null) yellowFragment = YellowFragment.newInstance("Sasdf", "asdf");
-
-        getSupportFragmentManager()
-                .beginTransaction()
+        fm.beginTransaction()
                 .add(R.id.fragmentHolder1,
                         YellowFragment.newInstance("wer", "Wer"), YellowFragment.TAG)
                 .addToBackStack(YellowFragment.TAG)
                 .commit();
-
-
     }
-
 
     @Override
     public void onFragmentInteraction(String data) {
@@ -88,16 +78,21 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void sendDataToRed(String textValue) {
+
+        RedFragment redFragment = (RedFragment) fm.findFragmentById(R.id.fragmentHolder2);
+        if (redFragment == null) addRedFragment(textValue);
+        else redFragment.updateTextView(textValue);
+
+    }
+
     public void onRemovingYellow(View view) {
 
-
         YellowFragment yellowFragment = (YellowFragment) getSupportFragmentManager().findFragmentByTag(YellowFragment.TAG);
-
         fm.beginTransaction()
                 .remove(yellowFragment)
                 .commit();
-
-
 
     }
 
@@ -108,18 +103,19 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
         fm.beginTransaction()
                 .remove(redFragment)
                 .commit();
-
     }
 
     public void onAddingRed(View view) {
 
+        addRedFragment("Default Text");
+    }
+
+    private void addRedFragment(String textValue) {
         fm.beginTransaction()
-                .add(R.id.fragmentHolder1,
-                        RedFragment.newInstance("wer", "Wer"), RedFragment.TAG)
+                .add(R.id.fragmentHolder2,
+                        RedFragment.newInstance(textValue), RedFragment.TAG)
                 .addToBackStack(RedFragment.TAG)
                 .commit();
-
-
     }
 
     public void onRemovingFragment(View view) {
@@ -138,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements YellowFragment.On
 
 //        remove the top fragment from back stack, inside the call and return boolean
 //        fm.popBackStackImmediate();
-
 
 
     }

@@ -12,14 +12,6 @@ import android.widget.TextView;
 
 import com.example.user.fragments.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RedFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RedFragment extends Fragment {
     public static final String TAG = RedFragment.class.getSimpleName()+ "_TAG";
 
@@ -86,7 +78,7 @@ public class RedFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-    
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

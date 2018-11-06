@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.user.fragments.R;
@@ -29,6 +30,8 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
     private TextView tvFirstName;
     private TextView tvLasttName;
     private Button btnSendData;
+    private Button btnSendToRed;
+    private EditText etTextValue;
 
     public YellowFragment() {
         // Required empty public constructor
@@ -49,6 +52,8 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: " + this.toString());
 
+//        avoid a fragment from getting destroyed
+        setRetainInstance(true);
 
         if (getArguments() != null) {
             firstName = getArguments().getString(FIRST_NAME_PARAM);
@@ -71,6 +76,11 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
         btnSendData = view.findViewById(R.id.btnSendData);
         btnSendData.setOnClickListener(this);
 
+//        button to send data to red fragment
+        etTextValue = view.findViewById(R.id.etTextValue);
+        btnSendToRed = view.findViewById(R.id.btnSendToRed);
+        btnSendToRed.setOnClickListener(this);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -78,6 +88,8 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
         if (mListener != null) {
             mListener.onFragmentInteraction(data);
         }
+
+
     }
 
     @Override
@@ -85,7 +97,6 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         tvFirstName.setText(firstName);
         tvLasttName.setText(lastName);
-
     }
 
     @Override
@@ -127,11 +138,24 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        //set the textview in the main
-        onButtonPressed("Some Data");
+
+        switch (v.getId()) {
+            case R.id.btnSendData:
+
+                //set the textview in the main
+                onButtonPressed("Some Data");
 
 //        show toast
-        mListener.showToast("From Yellow");
+                mListener.showToast("From Yellow");
+                break;
+
+            case R.id.btnSendToRed:
+
+                mListener.sendDataToRed(etTextValue.getText().toString());
+
+                break;
+        }
+
 
     }
 
@@ -139,5 +163,7 @@ public class YellowFragment extends Fragment implements View.OnClickListener {
         void onFragmentInteraction(String data);
 
         void showToast(String message);
+
+        void sendDataToRed(String textValue);
     }
 }
