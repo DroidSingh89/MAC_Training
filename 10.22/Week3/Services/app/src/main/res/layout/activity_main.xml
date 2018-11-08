@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <!--Normal service-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normal service"/>
+
+    <Button
+        android:id="@+id/btnStartNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onNormalService"
+        android:text="Start normal service"/>
+
+    <Button
+        android:id="@+id/btnStopNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onNormalService"
+        android:text="Stop normal service"/>
+
+    <!--Intent service-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Intent service"/>
+
+    <Button
+        android:id="@+id/btnStartFoo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onIntentService"
+        android:text="Start service (Foo)"/>
+
+    <Button
+        android:id="@+id/btnStartBaz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onIntentService"
+        android:text="Start service (Baz)"/>
+
+    <!--Bound service-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bound service"/>
+
+    <Button
+        android:id="@+id/btnBindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundService"
+        android:text="Bind to service"/>
+
+    <Button
+        android:id="@+id/btnUnbindService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundService"
+        android:text="Unbind from service"/>
+
+    <!--communicate with bound service-->
+    <Button
+        android:id="@+id/btnGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundService"
+        android:text="Get data"/>
+
+    <TextView
+        android:id="@+id/tvBoundData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etBoundData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnUpdateData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBoundService"
+        android:text="Update data"/>
+
+    <!--schedule service-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scheduled service"/>
+
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onScheduleService"
+        android:text="Schedule service"/>
+
+    <!--Coounter-->
+    <Button
+        android:id="@+id/onStartCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStartCounter"
+        android:text="Start Counter"/>
+
+    <Button
+        android:id="@+id/btnStopCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onStopCounter"
+
+        android:text="Stop Counter"/>
+
+
+</LinearLayout>

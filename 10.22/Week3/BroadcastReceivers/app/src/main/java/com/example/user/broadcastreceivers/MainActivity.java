@@ -1,7 +1,9 @@
 package com.example.user.broadcastreceivers;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import com.example.user.broadcastreceivers.receivers.MyStaticReceiver;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String ACTION_SEND_OUTSIDE = "action.SEND_DATA_OUTSIDE";
     private MyStaticReceiver myStaticReceiver;
     private EditText etMain;
     private TextView tvMain;
@@ -47,6 +50,26 @@ public class MainActivity extends AppCompatActivity {
         String stringToManipulate = etMain.getText().toString();
         StringManipulator stringManipulator = new StringManipulator(stringToManipulate, this);
         stringManipulator.start();
+
+    }
+
+    public void onSendingDataOutside(View view) {
+
+        Intent intent = new Intent(ACTION_SEND_OUTSIDE);
+        intent.putExtra("KEY", "Data from app module");
+
+//        using a system level permission
+//        sendBroadcast(intent, Manifest.permission.INTERNET);
+
+//        using a custom permission
+        sendBroadcast(intent, "user.permission.MY_PERMISSION");
+
+//        restricting the broadcast locally to the app
+//        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+
+
+
+
 
     }
 }
