@@ -1,7 +1,15 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Timezone{
+
+	@SerializedName("offset")
 	private String offset;
+
+	@SerializedName("description")
 	private String description;
 
 	public void setOffset(String offset){

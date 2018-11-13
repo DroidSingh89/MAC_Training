@@ -1,9 +1,21 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Info{
+
+	@SerializedName("seed")
 	private String seed;
+
+	@SerializedName("page")
 	private int page;
+
+	@SerializedName("results")
 	private int results;
+
+	@SerializedName("version")
 	private String version;
 
 	public void setSeed(String seed){

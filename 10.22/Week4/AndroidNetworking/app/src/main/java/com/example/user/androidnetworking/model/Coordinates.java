@@ -1,7 +1,15 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+
 public class Coordinates{
+
+	@SerializedName("latitude")
 	private String latitude;
+
+	@SerializedName("longitude")
 	private String longitude;
 
 	public void setLatitude(String latitude){

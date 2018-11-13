@@ -1,8 +1,16 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Id{
+
+	@SerializedName("name")
 	private String name;
-	private String value;
+
+	@SerializedName("value")
+	private Object value;
 
 	public void setName(String name){
 		this.name = name;
@@ -12,11 +20,11 @@ public class Id{
 		return name;
 	}
 
-	public void setValue(String value){
+	public void setValue(Object value){
 		this.value = value;
 	}
 
-	public String getValue(){
+	public Object getValue(){
 		return value;
 	}
 

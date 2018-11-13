@@ -1,12 +1,30 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Login{
+
+	@SerializedName("sha1")
 	private String sha1;
+
+	@SerializedName("password")
 	private String password;
+
+	@SerializedName("salt")
 	private String salt;
+
+	@SerializedName("sha256")
 	private String sha256;
+
+	@SerializedName("uuid")
 	private String uuid;
+
+	@SerializedName("username")
 	private String username;
+
+	@SerializedName("md5")
 	private String md5;
 
 	public void setSha1(String sha1){

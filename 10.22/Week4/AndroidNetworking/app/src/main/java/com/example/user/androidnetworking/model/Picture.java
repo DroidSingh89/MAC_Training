@@ -1,8 +1,18 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Picture{
+
+	@SerializedName("thumbnail")
 	private String thumbnail;
+
+	@SerializedName("large")
 	private String large;
+
+	@SerializedName("medium")
 	private String medium;
 
 	public void setThumbnail(String thumbnail){

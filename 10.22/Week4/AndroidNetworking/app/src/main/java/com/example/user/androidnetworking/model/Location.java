@@ -1,11 +1,27 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Location{
+
+	@SerializedName("city")
 	private String city;
+
+	@SerializedName("street")
 	private String street;
+
+	@SerializedName("timezone")
 	private Timezone timezone;
-	private int postcode;
+
+	@SerializedName("postcode")
+	private String postcode;
+
+	@SerializedName("coordinates")
 	private Coordinates coordinates;
+
+	@SerializedName("state")
 	private String state;
 
 	public void setCity(String city){
@@ -32,11 +48,11 @@ public class Location{
 		return timezone;
 	}
 
-	public void setPostcode(int postcode){
+	public void setPostcode(String postcode){
 		this.postcode = postcode;
 	}
 
-	public int getPostcode(){
+	public String getPostcode(){
 		return postcode;
 	}
 

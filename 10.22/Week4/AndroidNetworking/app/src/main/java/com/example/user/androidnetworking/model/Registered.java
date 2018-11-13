@@ -1,7 +1,15 @@
 package com.example.user.androidnetworking.model;
 
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
+
+@Generated("com.robohorse.robopojogenerator")
 public class Registered{
+
+	@SerializedName("date")
 	private String date;
+
+	@SerializedName("age")
 	private int age;
 
 	public void setDate(String date){

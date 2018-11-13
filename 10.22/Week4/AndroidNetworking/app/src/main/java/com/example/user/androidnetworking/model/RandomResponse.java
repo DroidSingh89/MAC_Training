@@ -1,9 +1,16 @@
 package com.example.user.androidnetworking.model;
 
 import java.util.List;
+import javax.annotation.Generated;
+import com.google.gson.annotations.SerializedName;
 
-public class Response{
+@Generated("com.robohorse.robopojogenerator")
+public class RandomResponse{
+
+	@SerializedName("results")
 	private List<ResultsItem> results;
+
+	@SerializedName("info")
 	private Info info;
 
 	public void setResults(List<ResultsItem> results){
@@ -25,7 +32,7 @@ public class Response{
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"RandomResponse{" + 
 			"results = '" + results + '\'' + 
 			",info = '" + info + '\'' + 
 			"}";
