@@ -2,12 +2,11 @@ package com.example.user.androidnetworking.client;
 
 import android.util.Log;
 
-import com.example.user.androidnetworking.model.RandomResponse;
-import com.example.user.androidnetworking.model.ResultsItem;
+import com.example.user.androidnetworking.model.randomresponse.RandomResponse;
+import com.example.user.androidnetworking.model.randomresponse.User;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.util.Random;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -66,8 +65,8 @@ public class OkhttpHelper {
                     RandomResponse randomResponse = gson.fromJson(response, RandomResponse.class);
 
 
-                    for (ResultsItem resultsItem : randomResponse.getResults()) {
-                        Log.d(TAG, "run: " + resultsItem.getGender());
+                    for (User user : randomResponse.getResults()) {
+                        Log.d(TAG, "run: " + user.getGender());
                     }
 
                 } catch (IOException e) {

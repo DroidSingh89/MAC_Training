@@ -25,7 +25,7 @@ public class Main {
                 .subscribe(ObserverFactory.getIntegerObserver());
     }
 
-    public static void startIntervalObservable() {
+    private static void startIntervalObservable() {
 
 
         ObservableFactory.getIntervalObservable()

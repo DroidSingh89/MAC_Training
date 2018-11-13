@@ -1,6 +1,5 @@
-package com.example.user.androidnetworking.model;
+package com.example.user.androidnetworking.model.randomresponse;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 

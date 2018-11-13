@@ -1,10 +1,10 @@
-package com.example.user.androidnetworking.model;
+package com.example.user.androidnetworking.model.randomresponse;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class ResultsItem{
+public class User {
 
 	@SerializedName("nat")
 	private String nat;
@@ -141,7 +141,7 @@ public class ResultsItem{
 	@Override
  	public String toString(){
 		return 
-			"ResultsItem{" + 
+			"User{" +
 			"nat = '" + nat + '\'' + 
 			",gender = '" + gender + '\'' + 
 			",phone = '" + phone + '\'' + 

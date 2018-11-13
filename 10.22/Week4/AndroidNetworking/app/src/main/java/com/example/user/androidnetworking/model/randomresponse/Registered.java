@@ -1,10 +1,10 @@
-package com.example.user.androidnetworking.model;
+package com.example.user.androidnetworking.model.randomresponse;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Dob{
+public class Registered{
 
 	@SerializedName("date")
 	private String date;
@@ -31,7 +31,7 @@ public class Dob{
 	@Override
  	public String toString(){
 		return 
-			"Dob{" + 
+			"Registered{" + 
 			"date = '" + date + '\'' + 
 			",age = '" + age + '\'' + 
 			"}";

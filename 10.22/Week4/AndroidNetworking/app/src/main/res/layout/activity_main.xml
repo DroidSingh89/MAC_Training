@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.user.UserActivity">
 
 
     <!--Okhttp-->
@@ -54,6 +54,26 @@
         android:layout_height="wrap_content"
         android:onClick="onRetrofit"
         android:text="Enqueue"/>
+
+    <!--user form-->
+    <EditText
+        android:id="@+id/etGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gender"/>
+
+    <EditText
+        android:id="@+id/etResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Results"/>
+
+    <Button
+        android:id="@+id/btnGetUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="getRandomUsers"
+        android:text="Get random users"/>
 
 
 </LinearLayout>

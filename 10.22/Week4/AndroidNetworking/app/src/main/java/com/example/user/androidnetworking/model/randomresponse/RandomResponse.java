@@ -1,4 +1,4 @@
-package com.example.user.androidnetworking.model;
+package com.example.user.androidnetworking.model.randomresponse;
 
 import java.util.List;
 import javax.annotation.Generated;
@@ -8,16 +8,16 @@ import com.google.gson.annotations.SerializedName;
 public class RandomResponse{
 
 	@SerializedName("results")
-	private List<ResultsItem> results;
+	private List<User> results;
 
 	@SerializedName("info")
 	private Info info;
 
-	public void setResults(List<ResultsItem> results){
+	public void setResults(List<User> results){
 		this.results = results;
 	}
 
-	public List<ResultsItem> getResults(){
+	public List<User> getResults(){
 		return results;
 	}
 
