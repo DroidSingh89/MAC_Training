@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.user.androidnetworking.R;
+import com.example.user.androidnetworking.RandomApplication;
 import com.example.user.androidnetworking.client.OkhttpHelper;
+import com.example.user.androidnetworking.di.DaggerUserComponent;
 import com.example.user.androidnetworking.model.data.RandomRepository;
 import com.example.user.androidnetworking.model.data.local.LocalDataSource;
 import com.example.user.androidnetworking.model.data.remote.RemoteDataSource;
@@ -15,6 +17,9 @@ import com.example.user.androidnetworking.model.randomresponse.RandomResponse;
 import com.example.user.androidnetworking.model.randomresponse.User;
 
 import java.util.List;
+import java.util.Random;
+
+import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,24 +29,28 @@ public class UserActivity extends AppCompatActivity implements UserContract.View
 
     private static final String TAG = UserActivity.class.getSimpleName()+ "_TAG";
     private OkhttpHelper okhttpHelper;
-    private RemoteDataSource remoteDataSource;
-    private UserPresenter presenter;
+
     private EditText etGender;
     private EditText etResults;
+    @Inject
+    UserPresenter presenter;
+
+    @Inject
+    RemoteDataSource remoteDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d(TAG, "onCreate: "+ RandomApplication.get(this).getString());
 
         etGender = findViewById(R.id.etGender);
         etResults = findViewById(R.id.etResults);
         okhttpHelper = new OkhttpHelper();
-        remoteDataSource = new RemoteDataSource();
 
+        DaggerUserComponent.create().inject(this);
 
-        presenter = new UserPresenter(new RandomRepository(new LocalDataSource(), new RemoteDataSource()));
     }
 
     @Override

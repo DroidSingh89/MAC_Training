@@ -1,15 +1,20 @@
 package com.example.user.mvp.ui.main;
 
+import com.example.user.mvp.util.StringManipulator;
+
 public class MainPresenter implements MainContract.Presenter {
 
     MainContract.View view;
+    StringManipulator stringManipulator;
 
+    public MainPresenter(StringManipulator stringManipulator) {
+        this.stringManipulator = stringManipulator;
+    }
 
     @Override
     public void manipulateString(String rawString) {
 
-        rawString = rawString.concat("other stuff");
-        view.onManipulationResult(rawString);
+        view.onManipulationResult(stringManipulator.update(rawString));
 
     }
 
