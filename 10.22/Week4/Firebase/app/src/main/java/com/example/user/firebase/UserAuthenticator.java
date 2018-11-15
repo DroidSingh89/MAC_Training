@@ -1,12 +1,7 @@
 package com.example.user.firebase;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -18,6 +13,11 @@ public class UserAuthenticator {
     Callback callback;
     Activity activity;
     CompleteListener completeListener;
+
+    public UserAuthenticator() {
+
+        auth = FirebaseAuth.getInstance();
+    }
 
     public UserAuthenticator(Activity activity, CompleteListener completeListener) {
         auth = FirebaseAuth.getInstance();
@@ -45,7 +45,10 @@ public class UserAuthenticator {
     }
 
 
-    public void checkSession() {
+    public boolean checkSession() {
+
+        FirebaseUser user = auth.getCurrentUser();
+        return (user != null);
 
     }
 

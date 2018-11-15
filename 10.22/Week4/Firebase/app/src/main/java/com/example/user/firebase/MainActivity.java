@@ -1,5 +1,6 @@
 package com.example.user.firebase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,21 @@ public class MainActivity extends AppCompatActivity implements UserAuthenticator
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (userAuthenticator.checkSession()) {
+            startPeopleActivity();
+        }
+
+    }
+
+    private void startPeopleActivity() {
+        Intent intent = new Intent(getApplicationContext(), PeopleActivity.class);
+        startActivity(intent);
+    }
+
     public void onSignUp(View view) {
 
         userAuthenticator.signUp(etUserEmail.getText().toString(),
@@ -40,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements UserAuthenticator
 
     @Override
     public void onUserValidated(FirebaseUser user) {
-        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome"+ user.getEmail(), Toast.LENGTH_SHORT).show();
+        startPeopleActivity();
     }
 
     @Override

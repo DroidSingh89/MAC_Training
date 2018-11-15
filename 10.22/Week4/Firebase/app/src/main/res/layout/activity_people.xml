@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PeopleActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSignOut"
+        android:text="Sign out"/>
+
+
+    <!--UI for simple data-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using simple data"/>
+
+    <EditText
+        android:id="@+id/etSimpleData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Simple data"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSimpleData"
+        android:text="Upload simple data"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDownloadSimpleData"
+        android:text="Get Simple data"/>
+
+    <TextView
+        android:id="@+id/tvSimpleData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <!--UI for People data-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Using people data"/>
+
+    <EditText
+        android:id="@+id/etPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+
+    <EditText
+        android:id="@+id/etPersonAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Age"/>
+
+    <EditText
+        android:id="@+id/etPersonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gender"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onPersonUpload"
+        android:text="Add person to cloud"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDownloadPeople"
+        android:text="Get people from cloud"/>
+
+</LinearLayout>
