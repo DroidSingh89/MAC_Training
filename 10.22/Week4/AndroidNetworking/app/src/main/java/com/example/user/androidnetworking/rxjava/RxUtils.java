@@ -20,8 +20,7 @@ class RxUtils {
             @Override
             public boolean test(Integer integer) throws Exception {
 
-                if (integer >= 30) return true;
-                else return false;
+                return (integer >= 30);
 
             }
         };

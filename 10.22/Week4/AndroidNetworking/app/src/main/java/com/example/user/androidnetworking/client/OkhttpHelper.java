@@ -25,6 +25,8 @@ public class OkhttpHelper {
 
     public OkhttpHelper() {
 
+
+
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
