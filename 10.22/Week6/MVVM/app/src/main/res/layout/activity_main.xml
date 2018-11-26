@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout>
+
+    <!--declare the objects being used in the xml-->
+    <data>
+
+        <!--declare each object with variable name-->
+        <variable
+            name="person"
+            type="com.example.user.mvvm.model.Person"/>
+
+        <variable
+            name="viewmodel"
+            type="com.example.user.mvvm.MainViewModel"/>
+
+
+    </data>
+
+
+    <!--Content view-->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+        <!--person name-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.nameObs}"/>
+
+        <!--person age-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.ageObs}"/>
+
+        <!--Edittext are for two-way databinding-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:onTextChanged="@{person.onNameChanged}"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Age"
+            android:onTextChanged="@{person.onAgeChanged}"/>
+
+        <!--send the person object to the viewmodel-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{view -> viewmodel.onButtonClicked(view, person)}"
+            android:text="Send person to view model"/>
+
+        <!--UI to emulate network call and check live data-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{view -> viewmodel.updatePerson(view)}"
+            android:text="Update person"/>
+
+        <!--UI for Room database-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{view -> viewmodel.savePerson(view, person)}"
+            android:text="Save person"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{view -> viewmodel.getPeople(view)}"
+            android:text="Get people"/>
+
+    </LinearLayout>
+
+
+</layout>
