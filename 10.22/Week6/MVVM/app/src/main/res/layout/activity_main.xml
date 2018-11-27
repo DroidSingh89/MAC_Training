@@ -69,17 +69,17 @@
             android:text="Update person"/>
 
         <!--UI for Room database-->
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{view -> viewmodel.savePerson(view, person)}"
-            android:text="Save person"/>
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="@{view -> viewmodel.savePerson(view, person)}"-->
+            <!--android:text="Save person"/>-->
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{view -> viewmodel.getPeople(view)}"
-            android:text="Get people"/>
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="@{view -> viewmodel.getPeople(view)}"-->
+            <!--android:text="Get people"/>-->
 
     </LinearLayout>
 
