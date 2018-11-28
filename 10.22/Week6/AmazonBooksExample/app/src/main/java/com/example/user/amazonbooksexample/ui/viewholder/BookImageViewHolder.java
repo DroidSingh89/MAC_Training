@@ -9,7 +9,7 @@ import com.example.user.amazonbooksexample.R;
 
 public class BookImageViewHolder extends RecyclerView.ViewHolder {
 
-    ImageView ivBook;
+    public ImageView ivBook;
     public BookImageViewHolder(@NonNull View itemView) {
         super(itemView);
 

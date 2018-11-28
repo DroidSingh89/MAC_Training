@@ -5,31 +5,44 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.user.amazonbooksexample.R;
 import com.example.user.amazonbooksexample.model.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BookListActivity extends AppCompatActivity {
+public class BookListActivity extends AppCompatActivity implements Observer<List<Book>>{
 
     private static final String TAG = BookListActivity.class.getSimpleName()+ "_TAG";
+    private BookListViewModel viewModel;
+    private RecyclerView rvBook;
+    private BookListAdapter bookListAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bindViews();
+        viewModel = ViewModelProviders.of(this).get(BookListViewModel.class);
+        viewModel.getBooks().observe(this, this);
 
-        BookListViewModel viewModel = ViewModelProviders.of(this).get(BookListViewModel.class);
+    }
 
+    private void bindViews() {
+        rvBook = findViewById(R.id.rvBooks);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        bookListAdapter = new BookListAdapter(new ArrayList<Book>());
+        rvBook.setLayoutManager(layoutManager);
+        rvBook.setAdapter(bookListAdapter);
+    }
 
-        viewModel.getBooks().observe(this, new Observer<List<Book>>() {
-            @Override
-            public void onChanged(@Nullable List<Book> books) {
-                for (Book book : books) {
-                    Log.d(TAG, "onChanged: " + book.toString());
-                }
-            }
-        });
+    @Override
+    public void onChanged(@Nullable List<Book> books) {
+        bookListAdapter.addAll(books);
+
     }
 }

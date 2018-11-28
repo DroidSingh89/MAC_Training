@@ -1,4 +1,6 @@
-package com.example.user.amazonbooksexample.model;
+package com.example.user.amazonbooksexample.utils;
+
+import com.example.user.amazonbooksexample.model.Book;
 
 import java.util.List;
 

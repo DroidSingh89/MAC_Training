@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.example.user.amazonbooksexample.R;
 
 public class BookViewHolder extends RecyclerView.ViewHolder {
-    ImageView ivBook;
-    TextView tvTitle;
+    public ImageView ivBook;
+    public TextView tvTitle;
 
     public BookViewHolder(@NonNull View itemView) {
         super(itemView);

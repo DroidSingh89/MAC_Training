@@ -1,10 +1,20 @@
 package com.example.user.amazonbooksexample.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
+@Entity
 public class Book {
+
+	@NonNull
+	@PrimaryKey(autoGenerate = true)
+	int id;
 
 	@SerializedName("imageURL")
 	private String imageURL;

@@ -1,7 +1,7 @@
 package com.example.user.amazonbooksexample.model.data.remote;
 
 import com.example.user.amazonbooksexample.model.Book;
-import com.example.user.amazonbooksexample.model.BookObserver;
+import com.example.user.amazonbooksexample.utils.BookObserver;
 import com.example.user.amazonbooksexample.model.data.DataCallback;
 import com.example.user.amazonbooksexample.utils.NetworkAPI;
 
