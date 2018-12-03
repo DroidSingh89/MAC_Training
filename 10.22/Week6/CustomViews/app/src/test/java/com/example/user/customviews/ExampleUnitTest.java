@@ -1,4 +1,4 @@
-package com.example.user.testing;
+package com.example.user.customviews;
 
 import org.junit.Test;
 
