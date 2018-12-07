@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:onClick="onTranslationClick"
+        android:id="@+id/tvTranslation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Default translation"/>
+
+    <TextView
+        android:onClick="onTextViewClick"
+        android:id="@+id/tvAnimate"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+
+        android:text="Hello World!"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/btnValueAnimator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startActivity"
+        android:text="Start Activity"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Animate"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Animate"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Animate"/>
+
+
+
+</LinearLayout>

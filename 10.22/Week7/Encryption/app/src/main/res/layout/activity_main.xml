@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--create the key-->
+    <EditText
+        android:id="@+id/etAlias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alias"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onGenerateKeyPair"
+        android:text="Generate KeyPair"/>
+
+    <TextView
+        android:id="@+id/tvKeyPair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <!--plain text-->
+    <EditText
+        android:id="@+id/etPlainText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onEncryption"
+        android:text="Encrypt data"/>
+
+    <!--cipher text-->
+    <TextView
+        android:id="@+id/tvCipherText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDecryption"
+        android:text="Decrypt data"/>
+
+    <!--plain text-->
+    <TextView
+        android:id="@+id/tvPlainText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
